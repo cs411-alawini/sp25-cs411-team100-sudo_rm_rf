@@ -1,1 +1,1 @@
-# sp25-cs411-team100-sudo-rm--rf-
+# CS100-README
