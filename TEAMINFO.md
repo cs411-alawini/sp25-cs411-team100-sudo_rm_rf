@@ -7,7 +7,7 @@
 | TeamID      |        Team-100        |
 | TeamName    |         sudo rm -rf/*  |
 | Captain     |       Zixuan Chen      |
-| Captain     |    uanc7@illinois.edu  |
+| Captain     |  zixuanc7@illinois.edu  |
 | Member1     |     Daniel Shevchuk    |
 | Member1     |    ds39@illinois.edu   |
 | Member2     |    Pranjal Chaitanya   |
