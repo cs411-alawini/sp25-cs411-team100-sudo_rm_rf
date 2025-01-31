@@ -10,8 +10,8 @@
 | Captain     |    uanc7@illinois.edu  |
 | Member1     |     Daniel Shevchuk    |
 | Member1     |    ds39@illinois.edu   |
-| Member2     |         |
-| Member2     |   |
+| Member2     |    Pranjal Chaitanya   |
+| Member2     |    pc42@illinois.edu   |
 | Member3     |                        |
 | Member3     |                        |
 
