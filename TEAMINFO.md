@@ -5,7 +5,7 @@
 |   Info      |        Description     |
 | ----------- | ---------------------- |
 | TeamID      |        Team-100        |
-| TeamName    |         sudo rm -rf/*  |
+| TeamName    |         sudo_rm_rf  |
 | Captain     |       Zixuan Chen      |
 | Captain     |  zixuanc7@illinois.edu  |
 | Member1     |     Daniel Shevchuk    |
