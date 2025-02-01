@@ -12,8 +12,8 @@
 | Member1     |    ds39@illinois.edu   |
 | Member2     |    Pranjal Chaitanya   |
 | Member2     |    pc42@illinois.edu   |
-| Member3     |                        |
-| Member3     |                        |
+| Member3     |       Yihan Tang       |
+| Member3     |  yihant3@illinois.edu  |
 
 ## Project Information
 
