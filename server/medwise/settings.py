@@ -74,8 +74,12 @@ WSGI_APPLICATION = 'medwise.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'cs411',
+        'USER': 'djangouser',
+        'PASSWORD': 'strong_password',
+        'HOST':'localhost',
+        'PORT':'3306',
     }
 }
 
