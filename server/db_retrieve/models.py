@@ -9,10 +9,10 @@ from django.db import models
 
 
 class Interactions(models.Model):
-    pk = models.CompositePrimaryKey('RXCUI1', 'RXCUI2', 'condition_meddra_id')
-    rxcui1 = models.CharField(db_column='RXCUI1', max_length=8)  # Field name made lowercase.
+    inter_id = models.IntegerField(primary_key=True)
+    rxcui1 = models.CharField(db_column='RXCUI1', max_length=8)
     drug_1_concept_name = models.CharField(max_length=150, blank=True, null=True)
-    rxcui2 = models.CharField(db_column='RXCUI2', max_length=8)  # Field name made lowercase.
+    rxcui2 = models.CharField(db_column='RXCUI2', max_length=8)
     drug_2_concept_name = models.CharField(max_length=150, blank=True, null=True)
     condition_meddra_id = models.CharField(max_length=8)
     condition_concept_name = models.CharField(max_length=100, blank=True, null=True)
@@ -31,23 +31,22 @@ class Interactions(models.Model):
 
 
 class Junction(models.Model):
-    pk = models.CompositePrimaryKey('RXCUI1', 'RXCUI2', 'result_id')
-    rxcui1 = models.ForeignKey(Interactions, models.DO_NOTHING, db_column='RXCUI1')  # Field name made lowercase.
-    rxcui2 = models.ForeignKey(Interactions, models.DO_NOTHING, db_column='RXCUI2', to_field='RXCUI2', related_name='junction_rxcui2_set')  # Field name made lowercase.
-    result = models.ForeignKey('Results', models.DO_NOTHING, on_delete = models.CASCADE)
-    condition_meddra = models.ForeignKey(Interactions, models.DO_NOTHING, to_field='condition_meddra_id', related_name='junction_condition_meddra_set')
+    pk = models.CompositePrimaryKey('inter_id', 'result_id')
+    inter_id = models.ForeignKey(Interactions, models.DO_NOTHING, db_column='inter_id', to_field='inter_id', related_name='junction_inter_id_set') 
+    result = models.ForeignKey('Results', on_delete = models.CASCADE)
+    #condition_meddra = models.ForeignKey(Interactions, models.DO_NOTHING, to_field='condition_meddra_id', related_name='junction_condition_meddra_set')
 
     class Meta:
         managed = True
         db_table = 'junction'
-        unique_together = (('rxcui1', 'rxcui2', 'result'),)
+        unique_together = (('inter_id', 'result'),)
 
 
 class Results(models.Model):
     dt_generated = models.DateTimeField(blank=True, null=True)
     result_name = models.CharField(max_length=50, blank=True, null=True)
     result_id = models.IntegerField(primary_key=True)
-    user = models.ForeignKey('Users', models.DO_NOTHING, on_delete = models.CASCADE)
+    user = models.ForeignKey('Users', on_delete = models.CASCADE)
 
     class Meta:
         managed = True
@@ -77,6 +76,9 @@ class Rxnconso(models.Model):
     class Meta:
         managed = False
         db_table = 'rxnconso'
+
+    def __str__(self):
+        return self.name
 
 
 class Rxnrel(models.Model):
@@ -110,3 +112,5 @@ class Users(models.Model):
     class Meta:
         managed = True
         db_table = 'users'
+
+
