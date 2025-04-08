@@ -5,11 +5,17 @@
         <title>Test results</title>
     </head>
     <body> 
-        <h1>Results:</h1>
-        <ul>
-            <li>STR (name of drug): {{ str.str }}</li>
-            <li>RXAUI (atom identifier): {{ str.rxaui }} </li>
-            <li>RXCUI (concept identifier): {{ str.rxcui}}</li>
-        </ul>
+        <center>
+            <h1>Results:</h1>
+            {% if result %}
+            <ul>
+                <li>STR (name of drug): {{ result.str }}</li>
+                <li>RXAUI (atom identifier): {{ result.rxaui }} </li>
+                <li>RXCUI (concept identifier): {{ result.rxcui }}</li>
+            </ul>
+            {% else %}
+                <li>Invalid search result</li>
+            {% endif %}
+        </center>
     </body>
 </html>

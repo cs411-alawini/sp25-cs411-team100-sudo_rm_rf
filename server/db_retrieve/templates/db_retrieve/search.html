@@ -2,17 +2,18 @@
 <html lang="en-US">
     <head>
         <meta charset="utf-8" />
-        <title>Test page</title>
+        <title>Test page search</title>
     </head>
     <body> 
-        <form action="/team_name_url/" method="get">
+      <center> 
+        <form method="get" action="{% url 'result' %}">
             <label for="drug_id">Enter drug id: </label>
             <input
-              id="drug_id"
-              type="text"
-              name="name_field"
+              type="number"
+              name="searched_aui"
               value="" />
-            <input type="submit" value="Search" />
+            <button type="submit">Search</button>
           </form>
+        </center>
     </body>
 </html>
