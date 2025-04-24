@@ -17,9 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from main.rawsearch.views import SearchItemView
+from main.views import TopInteractionsView
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path("db_retrieve/", include("db_retrieve.urls")),
-    path("search/", SearchItemView.as_view(), name = "cui_search"),   
+    path("search/", SearchItemView.as_view(), name = "cui_search"),
+    path("api/top-interactions-by-prr", TopInteractionsView.as_view(), name="top_interactions"), # <-- Add new URL pattern
 ]

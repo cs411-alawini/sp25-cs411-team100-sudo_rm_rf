@@ -119,7 +119,7 @@ export default function Home() {
         setErrorTopInteractions(null);
         try {
             // Replace with your actual API endpoint for Query 1
-            const res = await fetch('YOUR_BACKEND_API_ENDPOINT/top-interactions');
+            const res = await fetch('http://localhost:8000/api/top-interactions-by-prr');
             if (!res.ok) {
                  throw new Error(`HTTP error! status: ${res.status}`);
             }
