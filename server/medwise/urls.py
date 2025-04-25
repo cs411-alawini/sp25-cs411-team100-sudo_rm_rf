@@ -17,12 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from main.rawsearch.views import SearchItemView
-from main.views import TopInteractionsView
+from main.views import TopInteractionsView, TopDrugsByConditionCountView, DrugInteractingPartnersView
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path("db_retrieve/", include("db_retrieve.urls")),
     path("search/", SearchItemView.as_view(), name = "cui_search"),
-    path("api/top-interactions-by-prr", TopInteractionsView.as_view(), name="top_interactions"), # <-- Add new URL pattern
+    path("api/top-interactions-by-prr", TopInteractionsView.as_view(), name="top_interactions"),
+    path("api/top-drugs-by-conditions", TopDrugsByConditionCountView.as_view(), name="top_drugs_by_conditions"),
+    path("api/interacting-drugs/<str:target_rxcui>", DrugInteractingPartnersView.as_view(), name="interacting_drugs"),
 ]

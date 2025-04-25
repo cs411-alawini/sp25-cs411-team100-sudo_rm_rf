@@ -138,7 +138,7 @@ export default function Home() {
         setErrorSubstanceConditions(null);
         try {
             // Replace with your actual API endpoint for Query 2
-            const res = await fetch('YOUR_BACKEND_API_ENDPOINT/substance-conditions');
+            const res = await fetch('http://localhost:8000/api/top-drugs-by-conditions');
              if (!res.ok) {
                  throw new Error(`HTTP error! status: ${res.status}`);
             }
@@ -184,7 +184,7 @@ export default function Home() {
         setErrorDrugInteractions(null);
         try {
             // Replace with your actual API endpoint for Query 4, using drugRxcui as a query parameter
-            const res = await fetch(`YOUR_BACKEND_API_ENDPOINT/drug-interactions/?rxcui=${drugRxcui}`);
+            const res = await fetch(`http://localhost:8000/api/interacting-drugs/${drugRxcui}`);
              if (!res.ok) {
                  throw new Error(`HTTP error! status: ${res.status}`);
             }
