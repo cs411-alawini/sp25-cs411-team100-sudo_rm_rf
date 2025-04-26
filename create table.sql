@@ -24,6 +24,7 @@ CREATE TABLE rxnconso (
 )
 
 CREATE TABLE Interactions (
+    inter_id INT PRIMARY KEY,
     RXCUI1 VARCHAR(8),
     drug_1_concept_name VARCHAR(150),
     RXCUI2 VARCHAR(8),
@@ -37,7 +38,6 @@ CREATE TABLE Interactions (
     PRR VARCHAR(15),
     PRR_error VARCHAR(15),
     mean_reporting_frequency FLOAT,
-    PRIMARY KEY(RXCUI1, RXCUI2, condition_meddra_id)
 );
 
 CREATE TABLE rxnrel (
@@ -71,18 +71,15 @@ CREATE TABLE Users (
 CREATE TABLE Results (
     dt_generated DATETIME,
     result_name VARCHAR(50),
-    result_id INT,
-    PRIMARY KEY (result_id)
+    result_id INT PRIMARY KEY
 );
 
 CREATE TABLE Junction (
-    RXCUI1 VARCHAR(10) NOT NULL,
-    RXCUI2 VARCHAR(10) NOT NULL,
     result_id INT NOT NULL,
-    condition_meddra_id VARCHAR(8) NOT NULL,
-    PRIMARY KEY (RXCUI1, RXCUI2, result_id),
-    FOREIGN KEY (RXCUI1, RXCUI2, condition_meddra_id) REFERENCES Interactions(RXCUI1, RXCUI2, condition_meddra_id),
-    FOREIGN KEY (result_id) REFERENCES Results(result_id) ON DELETE CASCADE
+    inter_id INT NOT NULL,
+    PRIMARY KEY (result_id, inter_id),
+    FOREIGN KEY (inter_id) REFERENCES Interactions(inter_id),
+    FOREIGN KEY (result_id) REFERENCES Results(result_id)
 );
 
 LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/TWOSIDES_appended.csv'
