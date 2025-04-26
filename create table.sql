@@ -63,7 +63,7 @@ CREATE TABLE rxnrel (
 );
 
 CREATE TABLE Users (
-    user_id INT,
+    user_id INT PRIMARY KEY AUTO_INCREMENT,
     email VARCHAR(100),
     password_hash VARCHAR(100)
 );
