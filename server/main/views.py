@@ -13,7 +13,6 @@ class TopInteractionsView(APIView):
     Fetches the top 15 interactions based on average PRR.
     """
     def get(self, request):
-        # Your provided SQL query
         query = """
         WITH eng_names AS (
             SELECT RXCUI, MIN(STR) AS STR
@@ -52,7 +51,6 @@ class TopInteractionsView(APIView):
                 ]
             return Response(results)
         except Exception as e:
-            # Basic error handling
             return Response({"error": str(e)}, status=500)
 
 class TopDrugsByConditionCountView(APIView):
@@ -60,7 +58,6 @@ class TopDrugsByConditionCountView(APIView):
     Fetches the top 15 drugs associated with the most distinct conditions.
     """
     def get(self, request):
-        # Your provided SQL query
         query = """
         SELECT
             rc.STR AS drug_name,
@@ -154,10 +151,22 @@ class UserRegistrationView(APIView):
         email = request.data.get('email')
         password = request.data.get('password')
 
-        user = Users(email=email, password_hash=password)
-        user.save()
-        
-        return Response({"email": email}, status=201)
+        try:
+            with connection.cursor() as cursor:
+                # Insert new user into the Users table
+                cursor.execute(
+                    "INSERT INTO Users (email, password_hash) VALUES (%s, %s)",
+                    [email, password]
+                )
+                cursor.execute(
+                    "SELECT user_id FROM users WHERE email = %s AND password_hash = %s",
+                    [email, password]
+                )
+
+                user_id = cursor.fetchone()
+            return Response({"email": email, "user_id": user_id}, status=201)
+        except Exception as e:
+            return Response({"error": "An error occurred during registration"}, status=500)
     
     def get(self, request):
         return Response({"message": "UserRegistrationView is working!"}, status=200)
@@ -168,12 +177,19 @@ class UserLoginView(APIView):
         password = request.data.get('password')
 
         # print(Users.objects.all())
-
         try:
-            user = Users.objects.get(email=email)
-            if user.password_hash == password:
-                return Response({"message": "Login successful"}, status=200)
-            else:
-                return Response({"error": "Invalid credentials"}, status=401)
+            with connection.cursor() as cursor:
+                cursor.execute("SELECT user_id, password_hash FROM Users WHERE email = %s", [email])
+                row = cursor.fetchone()
+
+                if row is None:
+                    return Response({"error": "Invalid credentials"}, status=401)
+
+                user_id, password_hash = row
+
+                if password_hash == password:
+                    return Response({"message": "Login successful", "user_id": user_id}, status=200)
+                else:
+                    return Response({"error": "Invalid credentials"}, status=401)         
         except:
             return Response({"error": "An error occurred during login"}, status=500)

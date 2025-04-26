@@ -26,8 +26,11 @@ export default function LoginPage() {
                 }),
             })
 
+            const data = await response.json();
+
             if (response.status === 200) {
                 localStorage.setItem("email", email);
+                localStorage.setItem("user_id", data.user_id);
                 window.location.href = "/";
             } else {
                 console.log("Login failed")

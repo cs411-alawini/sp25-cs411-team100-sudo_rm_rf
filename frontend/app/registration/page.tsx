@@ -23,8 +23,11 @@ export default function RegistrationPage() {
                     password: password,
                 }),
             })
+            
+            const data = await response.json();
 
             localStorage.setItem("email", email);
+            localStorage.setItem("user_id", data.user_id);
 
             window.location.href = "/";
         } catch (error) {
@@ -49,7 +52,7 @@ export default function RegistrationPage() {
                 style={{
                     outline: '2px solid white',
                     backgroundColor: 'transparent',
-                    color: 'white',
+                    color: 'black',
                     padding: '8px',
                     borderRadius: '4px',
                     marginBottom: '10px',
@@ -64,7 +67,7 @@ export default function RegistrationPage() {
                 style={{
                     outline: '2px solid white',
                     backgroundColor: 'transparent',
-                    color: 'white',
+                    color: 'black',
                     padding: '8px',
                     borderRadius: '4px',
                     marginBottom: '10px',
@@ -75,7 +78,7 @@ export default function RegistrationPage() {
                             style={{
                                 outline: '2px solid white',
                                 backgroundColor: 'transparent',
-                                color: 'white',
+                                color: 'black',
                                 padding: '8px',
                                 borderRadius: '4px',
                                 marginBottom: '10px',
