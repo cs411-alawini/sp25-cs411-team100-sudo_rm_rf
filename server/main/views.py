@@ -4,6 +4,8 @@ from django.db import connection
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
+from main.models import Users
+
 # Keep any existing views you might have
 
 class TopInteractionsView(APIView):
@@ -143,3 +145,35 @@ class DrugInteractingPartnersView(APIView):
             print(f"Error in DrugInteractingPartnersView: {e}")
             # Basic error handling
             return Response({"error": "An internal server error occurred."}, status=500)
+    
+class UserRegistrationView(APIView):
+    """
+    Handles user registration.
+    """
+    def post(self, request):
+        email = request.data.get('email')
+        password = request.data.get('password')
+
+        user = Users(email=email, password_hash=password)
+        user.save()
+        
+        return Response({"email": email}, status=201)
+    
+    def get(self, request):
+        return Response({"message": "UserRegistrationView is working!"}, status=200)
+
+class UserLoginView(APIView):
+    def post(self, request):
+        email = request.data.get('email')
+        password = request.data.get('password')
+
+        # print(Users.objects.all())
+
+        try:
+            user = Users.objects.get(email=email)
+            if user.password_hash == password:
+                return Response({"message": "Login successful"}, status=200)
+            else:
+                return Response({"error": "Invalid credentials"}, status=401)
+        except:
+            return Response({"error": "An error occurred during login"}, status=500)

@@ -1,0 +1,1 @@
+(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[520],{3247:(e,s,r)=>{Promise.resolve().then(r.bind(r,8007))},8007:(e,s,r)=>{"use strict";r.r(s),r.d(s,{default:()=>n});var i=r(5155);function n(){return(0,i.jsx)("div",{children:"This is a test for the login page"})}}},e=>{var s=s=>e(e.s=s);e.O(0,[441,684,358],()=>s(3247)),_N_E=e.O()}]);
