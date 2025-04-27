@@ -17,30 +17,22 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from main.rawsearch.views import SearchItemView
-<<<<<<< HEAD
 import main.views #import TopInteractionsView, TopDrugsByConditionCountView, DrugInteractingPartnersView, UserRegistrationView, UserLoginView
-=======
 from main.views import TopInteractionsView, TopDrugsByConditionCountView, DrugInteractingPartnersView, UserRegistrationView, UserLoginView, DrugConditionsView
->>>>>>> d7e852b0812a410ed9a3d8686a4b9827ed9e8df0
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path("db_retrieve/", include("db_retrieve.urls")),
     path("search/", SearchItemView.as_view(), name = "cui_search"),
-<<<<<<< HEAD
-    path("api/top-interactions-by-prr", main.views.TopInteractionsView.as_view(), name="top_interactions"),
-    path("api/top-drugs-by-conditions", main.views.TopDrugsByConditionCountView.as_view(), name="top_drugs_by_conditions"),
-    path("api/get_user_drugs", main.views.UserDrugs.as_view(), name="user_drugs"),
-    path("api/interacting-drugs/<str:target_rxcui>", main.views.DrugInteractingPartnersView.as_view(), name="interacting_drugs"),
-    path("api/users", main.views.UserRegistrationView.as_view(), name="user_registration"),
-    path("api/login", main.views.UserLoginView.as_view(), name="user_login"),
-=======
     path("api/top-interactions-by-prr", TopInteractionsView.as_view(), name="top_interactions"),
     path("api/top-drugs-by-conditions", TopDrugsByConditionCountView.as_view(), name="top_drugs_by_conditions"),
     path("api/interacting-drugs/<str:target_rxcui>", DrugInteractingPartnersView.as_view(), name="interacting_drugs"),
     path("api/users", UserRegistrationView.as_view(), name="user_registration"),
     path("api/login", UserLoginView.as_view(), name="user_login"),
     path("api/conditions", DrugConditionsView.as_view(), name="drug_conditions"),
->>>>>>> d7e852b0812a410ed9a3d8686a4b9827ed9e8df0
+
+    path("api/user-add-drugs", main.views.AddMedication.as_view(), name="add_user_drugs"),
+    path("api/user-delete-drugs", main.views.DeleteMedication.as_view(), name="delete_user_drugs"),
+    path("api/result-sets", main.views.GetResultIds.as_view(), name="get_result_ids")
 ]

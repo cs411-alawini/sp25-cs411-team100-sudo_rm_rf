@@ -247,29 +247,75 @@ class UserDrugs(APIView):
             return Response({"message": "Problem retrieving user medications"}, status = 500)
         
 
-def add_medication(request):
-    if request.method == 'POST':
-        user_id = request.data.get("user_id")
+class AddMedication(APIView):
+    def post(self, request):
         result_id = request.data.get("result_id")
-        rxcui1 = request.data.get("rxcui1")
-        rxcui2 = request.data.get("rxcui2")
-
+        rxcui = request.data.get("rxcui")
+        #print(result_id)
         with connection.cursor() as cursor:
-            # First check if already added
             cursor.execute(
-                "SELECT DISTINCT inter_id FROM users JOIN results LEFT JOIN junction ON results.result_id = junction.result_id" \
-                " LEFT JOIN interactions ON junction.inter_id = interactions.inter_id" \
-                " WHERE users.user_id = %s AND results.result_id = %s AND interactions.rxcui1 = %s AND interaction.rxcui2 = %s",
-                [user_id, result_id, rxcui1, rxcui2]
+                """SELECT DISTINCT rxcui1 FROM junction LEFT JOIN interactions ON junction.inter_id = interactions.inter_id WHERE junction.result_id = %s
+                UNION
+                SELECT DISTINCT rxcui2 FROM junction LEFT JOIN interactions ON junction.inter_id = interactions.inter_id WHERE junction.result_id = %s""",
+                [result_id, result_id]
             )
-            if cursor.fetchone() is None:
-
+            all_rxcuis = set()
+            for row in cursor.fetchall():
+                all_rxcuis.add(row[0])
+        with connection.cursor() as cursor:
+            for exist_rxcui in all_rxcuis:
                 cursor.execute(
-                    "INSERT INTO junction (result_id, inter_id) VALUES (%s, %s)",
-                    [user_id, drug]
-                )
+                    """SELECT DISTINCT inter_id FROM interactions WHERE (rxcui1 = %s AND rxcui2 = %s) OR (rxcui1 = %s AND rxcui2 = %s)""",
+                    [rxcui, exist_rxcui, exist_rxcui, rxcui]
+                )   
+                temp_inter_id = cursor.fetchone()
+                # print(temp_inter_id)
+                cursor.execute("INSERT INTO junction (result_id, inter_id) VALUES (%s, %s)", [result_id, temp_inter_id[0]])
+        return Response(status = 200)
+    
+class DeleteMedication(APIView):
+    def post(self, request):
+        result_id = request.data.get("result_id")
+        rxcui = request.data.get("rxcui")
+        print(rxcui)
+        with connection.cursor() as cursor:
+            cursor.execute(
+                """SELECT DISTINCT rxcui1 FROM junction LEFT JOIN interactions ON junction.inter_id = interactions.inter_id WHERE junction.result_id = %s
+                UNION
+                SELECT DISTINCT rxcui2 FROM junction LEFT JOIN interactions ON junction.inter_id = interactions.inter_id WHERE junction.result_id = %s""",
+                [result_id, result_id]
+            )
+            all_rxcuis = set()
+            for row in cursor.fetchall():
+                all_rxcuis.add(row[0])
+             
+        with connection.cursor() as cursor:
+            for exist_rxcui in all_rxcuis:
+                cursor.execute(
+                    """SELECT DISTINCT inter_id FROM interactions WHERE (rxcui1 = %s AND rxcui2 = %s) OR (rxcui1 = %s AND rxcui2 = %s)""",
+                    [rxcui, exist_rxcui, exist_rxcui, rxcui]
+                )   
+                temp_inter_id = cursor.fetchone()
+                print(temp_inter_id)
+                cursor.execute("DELETE FROM junction WHERE result_id = %s AND inter_id = %s", [result_id, temp_inter_id[0]])
+        return Response(status = 200)
+    
+class GetResultIds(APIView):
+    def get(self, request):
+        user_id = request.query_params.get("user_id")
+        #print(user_id)
+        with connection.cursor() as cursor:
+            cursor.execute(
+                "SELECT DISTINCT result_id FROM results WHERE user_id = %s", [user_id]
+            )
+            temp_results = cursor.fetchall()
+            #print(temp_results)
+        formated_results = []
+        for idx, res_id in enumerate(temp_results):
+            formated_results.append({"id": res_id, "name": res_id})
+        print(formated_results)
+        return Response(formated_results, status = 200)
 
-        return JsonResponse({'success': True})
 class DrugConditionsView(APIView):
     def post(self, request):
         user_id = request.data.get('user_id')
