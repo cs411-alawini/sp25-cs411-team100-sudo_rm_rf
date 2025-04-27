@@ -17,16 +17,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from main.rawsearch.views import SearchItemView
-from main.views import TopInteractionsView, TopDrugsByConditionCountView, DrugInteractingPartnersView, UserRegistrationView, UserLoginView
+import main.views #import TopInteractionsView, TopDrugsByConditionCountView, DrugInteractingPartnersView, UserRegistrationView, UserLoginView
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path("db_retrieve/", include("db_retrieve.urls")),
     path("search/", SearchItemView.as_view(), name = "cui_search"),
-    path("api/top-interactions-by-prr", TopInteractionsView.as_view(), name="top_interactions"),
-    path("api/top-drugs-by-conditions", TopDrugsByConditionCountView.as_view(), name="top_drugs_by_conditions"),
-    path("api/interacting-drugs/<str:target_rxcui>", DrugInteractingPartnersView.as_view(), name="interacting_drugs"),
-    path("api/users", UserRegistrationView.as_view(), name="user_registration"),
-    path("api/login", UserLoginView.as_view(), name="user_login"),
+    path("api/top-interactions-by-prr", main.views.TopInteractionsView.as_view(), name="top_interactions"),
+    path("api/top-drugs-by-conditions", main.views.TopDrugsByConditionCountView.as_view(), name="top_drugs_by_conditions"),
+    path("api/get_user_drugs", main.views.UserDrugs.as_view(), name="user_drugs"),
+    path("api/interacting-drugs/<str:target_rxcui>", main.views.DrugInteractingPartnersView.as_view(), name="interacting_drugs"),
+    path("api/users", main.views.UserRegistrationView.as_view(), name="user_registration"),
+    path("api/login", main.views.UserLoginView.as_view(), name="user_login"),
 ]

@@ -193,3 +193,50 @@ class UserLoginView(APIView):
                     return Response({"error": "Invalid credentials"}, status=401)         
         except:
             return Response({"error": "An error occurred during login"}, status=500)
+
+class UserDrugs(APIView):
+    def get(self, request):
+        user_id = request.data.get("user_id")
+        result_id = request.data.get("result_id")
+
+        try:
+            with connection.cursor() as cursor:
+                cursor.execute("""
+                                SELECT DISTINCT interactions.rxcui1, interactions.rxcui2
+                                FROM users JOIN results JOIN junction LEFT JOIN interactions ON junction.inter_id = interactions.inter_id
+                                WHERE users.user_id = %s AND result_id = %s;
+                                """,
+                                [user_id, result_id])
+                rows = cursor.fetchall()
+            
+            results = set()
+            for row in rows:
+                results.add(row[0], row[1])
+            return Response({"result": list(results)}, status = 200)
+        except Exception as e:
+            return Response({"message": "Problem retrieving user medications"}, status = 500)
+        
+
+def add_medication(request):
+    if request.method == 'POST':
+        user_id = request.data.get("user_id")
+        result_id = request.data.get("result_id")
+        rxcui1 = request.data.get("rxcui1")
+        rxcui2 = request.data.get("rxcui2")
+
+        with connection.cursor() as cursor:
+            # First check if already added
+            cursor.execute(
+                "SELECT DISTINCT inter_id FROM users JOIN results LEFT JOIN junction ON results.result_id = junction.result_id" \
+                " LEFT JOIN interactions ON junction.inter_id = interactions.inter_id" \
+                " WHERE users.user_id = %s AND results.result_id = %s AND interactions.rxcui1 = %s AND interaction.rxcui2 = %s",
+                [user_id, result_id, rxcui1, rxcui2]
+            )
+            if cursor.fetchone() is None:
+
+                cursor.execute(
+                    "INSERT INTO junction (result_id, inter_id) VALUES (%s, %s)",
+                    [user_id, drug]
+                )
+
+        return JsonResponse({'success': True})
