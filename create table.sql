@@ -80,8 +80,8 @@ CREATE TABLE Results (
 CREATE TABLE Junction (
     result_id INT NOT NULL,
     inter_id INT NOT NULL,
-    rxcui1 VARCHAR(8) NOT NULL,
-    rxcui2 VARCHAR(8) NOT NULL,
+    rxcui1 VARCHAR(8),
+    rxcui2 VARCHAR(8),
     PRIMARY KEY (result_id, inter_id),
     FOREIGN KEY (inter_id) REFERENCES Interactions(inter_id),
     FOREIGN KEY (result_id) REFERENCES Results(result_id)

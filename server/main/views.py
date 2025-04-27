@@ -267,7 +267,7 @@ class AddMedication(APIView):
         with connection.cursor() as cursor:
             for exist_rxcui in all_rxcuis:
                 cursor.execute(
-                    """SELECT DISTINCT inter_id FROM interactions WHERE (rxcui1 = %s AND rxcui2 = %s) OR (rxcui1 = %s AND rxcui2 = %s)""",
+                    "SELECT DISTINCT inter_id FROM interactions WHERE (rxcui1 = %s AND rxcui2 = %s) OR (rxcui1 = %s AND rxcui2 = %s)",
                     [rxcui, exist_rxcui, exist_rxcui, rxcui]
                 )   
                 temp_inter_id = cursor.fetchone()
@@ -315,14 +315,57 @@ class GetResultIds(APIView):
         #print(user_id)
         with connection.cursor() as cursor:
             cursor.execute(
-                "SELECT DISTINCT result_id FROM results WHERE user_id = %s", [user_id]
+                "SELECT DISTINCT result_id FROM results WHERE user_id = %s", 
+                [user_id]
             )
             temp_results = cursor.fetchall()
             #print(temp_results)
         formated_results = []
         for idx, res_id in enumerate(temp_results):
             formated_results.append({"id": res_id, "name": res_id})
-        print(formated_results)
+        #print(formated_results)
+        return Response(formated_results, status = 200)
+
+"""
+# Seperate searchboxes for 
+class GenericTextSearch(APIView):
+    def get(self, request):
+        search_string = request.query_params.get("search_string")
+
+        with connection.cursor() as cursor:
+            cursor.execute(
+                "SELECT DISTINCT rxcui1 FROM interactions WHERE drug_1_concept_name LIKE %s",
+                [f"%{search_string}%"]
+            )
+            return Response(cursor.fetchmany(5), status = 200)
+
+class BrandedTextSearch(APIView):
+    def get(self, request):
+        search_string = request.query_params.get("search_string")
+
+        with connection.cursor() as cursor:
+            cursor.execute(
+                "SELECT DISTINCT rxcui1 WHERE rela = %s AND ", 
+                ["is_tradename", search_string]
+            )
+
+"""
+
+class GetID(APIView):
+    def get(self, request):
+        search_string = request.query_params.get("query")
+        #print(search_string)
+        with connection.cursor() as cursor:
+            cursor.execute(
+                "SELECT DISTINCT str, rxcui FROM rxnconso WHERE str LIKE %s",
+                [f"%{search_string}%"]
+            )
+            temp_results = cursor.fetchall()
+        temp_results = sorted(temp_results, key=lambda x: len(x[0]))[:5]
+        formated_results = []
+        for idx, res_id in enumerate(temp_results):
+            formated_results.append({"id": res_id[1], "name": res_id[0]})
+        #print(formated_results)
         return Response(formated_results, status = 200)
 
 class DrugConditionsView(APIView):

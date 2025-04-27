@@ -8,6 +8,9 @@ export default function MedicationsPage() {
   const [resultSets, setResultSets] = useState([]);
   const [selectedResultId, setSelectedResultId] = useState('');
 
+  const [searchTerm, setSearchTerm] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
+
   // fetch result_ids on page load
   useEffect(() => {
     async function fetchResultSets() {
@@ -28,8 +31,9 @@ export default function MedicationsPage() {
     fetchResultSets();
   }, []);
 
-  const handleAddMedication = async () => {
-    if (!medicationIdToAdd || !selectedResultId) {console.log(medicationIdToAdd, selectedResultId); return;}
+  const handleAddMedication = async (rxcuiToAdd?: string) => {
+    const rxcui = rxcuiToAdd || medicationIdToAdd;
+    if (!rxcui || !selectedResultId) { console.log(rxcui, selectedResultId); return; }
     try {
       const res = await fetch("http://localhost:8000/api/user-add-drugs", {
         method: 'POST',
@@ -38,7 +42,7 @@ export default function MedicationsPage() {
         },
         body: JSON.stringify({
           result_id: selectedResultId,
-          rxcui: medicationIdToAdd,
+          rxcui: rxcui,
         }),
       });
       if (res.ok) {
@@ -76,6 +80,17 @@ export default function MedicationsPage() {
     }
   };
 
+  const handleSearch = async () => {
+    if (!searchTerm.trim()) return;
+    try {
+      const res = await fetch(`http://localhost:8000/api/medication-search?query=${searchTerm}`);
+      const data = await res.json(); // Expecting [{id: 123, name: "Tylenol"}, ...]
+      setSearchResults(data);
+    } catch (error) {
+      console.error('Error searching medications:', error);
+    }
+  }
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center p-8">
       <h1 className="text-3xl font-bold mb-6">Manage Medications</h1>
@@ -106,10 +121,47 @@ export default function MedicationsPage() {
         />
         <button
           className="bg-blue-500 text-white p-2 rounded"
-          onClick={handleAddMedication}
+          onClick={() => handleAddMedication()}
         >
           Add Medication
         </button>
+      </div>
+      
+      {/* New search box */}
+      <div className="mb-6 w-full max-w-md">
+        <input
+          type="text"
+          placeholder="Search Medication Name"
+          className="border p-2 rounded mr-2 w-2/3"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        <button
+          className="bg-green-500 text-white p-2 rounded"
+          onClick={handleSearch}
+        >
+          Search
+        </button>
+
+        {/* Search Results */}
+        {searchResults.length > 0 && (
+          <div className="mt-4">
+            <h2 className="font-semibold mb-2">Search Results:</h2>
+            <ul>
+            {searchResults.map((med) => (
+                <li key={`${med["id"]}-${med["name"]}`} className="flex justify-between items-center border-b py-2">
+                  <span>{med["name"]} (ID: {med["id"]})</span>
+                  <button
+                    className="bg-blue-500 text-white p-1 px-2 rounded"
+                    onClick={() => handleAddMedication(med["id"])}
+                  >
+                    Add
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
 
       <div>
