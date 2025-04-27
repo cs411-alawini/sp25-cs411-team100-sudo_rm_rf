@@ -21,7 +21,7 @@ CREATE TABLE rxnconso (
    SUPPRESS          VARCHAR (1),
    CVF               VARCHAR(50),
    PRIMARY KEY(RXAUI, RXCUI)
-)
+);
 
 CREATE TABLE Interactions (
     inter_id INT PRIMARY KEY,
@@ -71,7 +71,10 @@ CREATE TABLE Users (
 CREATE TABLE Results (
     dt_generated DATETIME,
     result_name VARCHAR(50),
-    result_id INT PRIMARY KEY
+    result_id INT,
+    user_id INT,
+    PRIMARY KEY (result_id),
+    FOREIGN KEY (user_id) REFERENCES Users(user_id) ON DELETE CASCADE
 );
 
 CREATE TABLE Junction (
