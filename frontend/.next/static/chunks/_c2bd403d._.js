@@ -155,621 +155,634 @@ function Home() {
         }
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "p-4 max-w-4xl mx-auto space-y-8",
         children: [
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-                className: "text-3xl font-bold text-center mb-8",
-                children: "MedWise Application Entry Point"
-            }, void 0, false, {
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(NavigationBar, {}, void 0, false, {
                 fileName: "[project]/app/HomePage.tsx",
                 lineNumber: 209,
                 columnNumber: 13
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "border p-4 rounded shadow",
+                className: "p-4 max-w-4xl mx-auto space-y-8",
                 children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                        className: "text-2xl font-semibold mb-4",
-                        children: "Search Drug Concepts (Original)"
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                        className: "text-3xl font-bold text-center mb-8",
+                        children: "MedWise Application Entry Point"
                     }, void 0, false, {
                         fileName: "[project]/app/HomePage.tsx",
-                        lineNumber: 213,
+                        lineNumber: 212,
                         columnNumber: 17
                     }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                        type: "text" // Changed from number to text based on previous discussion
-                        ,
-                        value: originalQuery,
-                        onChange: (e)=>setOriginalQuery(e.target.value),
-                        className: "border p-2 w-full mb-4 rounded",
-                        placeholder: "Search by RXCUI or name..."
-                    }, void 0, false, {
-                        fileName: "[project]/app/HomePage.tsx",
-                        lineNumber: 214,
-                        columnNumber: 17
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                        onClick: handleOriginalSearch,
-                        className: "bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600",
-                        children: "Search"
-                    }, void 0, false, {
-                        fileName: "[project]/app/HomePage.tsx",
-                        lineNumber: 221,
-                        columnNumber: 17
-                    }, this),
-                    loadingOriginalSearch && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "mt-2",
-                        children: "Loading original search results..."
-                    }, void 0, false, {
-                        fileName: "[project]/app/HomePage.tsx",
-                        lineNumber: 228,
-                        columnNumber: 43
-                    }, this),
-                    errorOriginalSearch && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "mt-2 text-red-500",
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "border p-4 rounded shadow",
                         children: [
-                            "Error: ",
-                            errorOriginalSearch
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/app/HomePage.tsx",
-                        lineNumber: 229,
-                        columnNumber: 41
-                    }, this),
-                    !loadingOriginalSearch && !errorOriginalSearch && originalSearchResults.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
-                        className: "mt-4 space-y-2",
-                        children: originalSearchResults.map((item, index)=>// Assuming RXAUI is unique for the key based on the original search result structure
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                className: "border-b py-2",
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                className: "text-2xl font-semibold mb-4",
+                                children: "Search Drug Concepts (Original)"
+                            }, void 0, false, {
+                                fileName: "[project]/app/HomePage.tsx",
+                                lineNumber: 216,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                type: "text" // Changed from number to text based on previous discussion
+                                ,
+                                value: originalQuery,
+                                onChange: (e)=>setOriginalQuery(e.target.value),
+                                className: "border p-2 w-full mb-4 rounded",
+                                placeholder: "Search by RXCUI or name..."
+                            }, void 0, false, {
+                                fileName: "[project]/app/HomePage.tsx",
+                                lineNumber: 217,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                onClick: handleOriginalSearch,
+                                className: "bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600",
+                                children: "Search"
+                            }, void 0, false, {
+                                fileName: "[project]/app/HomePage.tsx",
+                                lineNumber: 224,
+                                columnNumber: 21
+                            }, this),
+                            loadingOriginalSearch && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "mt-2",
+                                children: "Loading original search results..."
+                            }, void 0, false, {
+                                fileName: "[project]/app/HomePage.tsx",
+                                lineNumber: 231,
+                                columnNumber: 47
+                            }, this),
+                            errorOriginalSearch && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "mt-2 text-red-500",
                                 children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
-                                        children: [
-                                            "Atom name: ",
-                                            item.str
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/app/HomePage.tsx",
-                                        lineNumber: 235,
-                                        columnNumber: 33
-                                    }, this),
-                                    "\n",
-                                    "RXCUI: ",
-                                    item.rxcui,
-                                    ", RXAUI: ",
-                                    item.rxaui,
-                                    ", Source vocabulary: ",
-                                    item.sab,
-                                    ", Term Type: ",
-                                    item.tty
+                                    "Error: ",
+                                    errorOriginalSearch
                                 ]
-                            }, item.rxaui || index, true, {
+                            }, void 0, true, {
+                                fileName: "[project]/app/HomePage.tsx",
+                                lineNumber: 232,
+                                columnNumber: 45
+                            }, this),
+                            !loadingOriginalSearch && !errorOriginalSearch && originalSearchResults.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
+                                className: "mt-4 space-y-2",
+                                children: originalSearchResults.map((item, index)=>// Assuming RXAUI is unique for the key based on the original search result structure
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                        className: "border-b py-2",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                                children: [
+                                                    "Atom name: ",
+                                                    item.str
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/app/HomePage.tsx",
+                                                lineNumber: 238,
+                                                columnNumber: 37
+                                            }, this),
+                                            "\n",
+                                            "RXCUI: ",
+                                            item.rxcui,
+                                            ", RXAUI: ",
+                                            item.rxaui,
+                                            ", Source vocabulary: ",
+                                            item.sab,
+                                            ", Term Type: ",
+                                            item.tty
+                                        ]
+                                    }, item.rxaui || index, true, {
+                                        fileName: "[project]/app/HomePage.tsx",
+                                        lineNumber: 237,
+                                        columnNumber: 29
+                                    }, this))
+                            }, void 0, false, {
                                 fileName: "[project]/app/HomePage.tsx",
                                 lineNumber: 234,
-                                columnNumber: 28
-                            }, this))
-                    }, void 0, false, {
-                        fileName: "[project]/app/HomePage.tsx",
-                        lineNumber: 231,
-                        columnNumber: 21
-                    }, this),
-                    !loadingOriginalSearch && !errorOriginalSearch && originalSearchResults.length === 0 && originalQuery && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "mt-2",
-                        children: [
-                            'No results found for "',
-                            originalQuery,
-                            '".'
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/app/HomePage.tsx",
-                        lineNumber: 245,
-                        columnNumber: 21
-                    }, this),
-                    !loadingOriginalSearch && !errorOriginalSearch && originalSearchResults.length === 0 && !originalQuery && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "mt-2",
-                        children: "Enter a query in the search box above."
-                    }, void 0, false, {
-                        fileName: "[project]/app/HomePage.tsx",
-                        lineNumber: 248,
-                        columnNumber: 21
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "[project]/app/HomePage.tsx",
-                lineNumber: 212,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "border p-4 rounded shadow",
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                        className: "text-2xl font-semibold mb-4",
-                        children: "Top 15 Interactions by PRR"
-                    }, void 0, false, {
-                        fileName: "[project]/app/HomePage.tsx",
-                        lineNumber: 255,
-                        columnNumber: 17
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                        onClick: fetchTopInteractions,
-                        className: "bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600",
-                        children: "Fetch Top Interactions"
-                    }, void 0, false, {
-                        fileName: "[project]/app/HomePage.tsx",
-                        lineNumber: 256,
-                        columnNumber: 17
-                    }, this),
-                    loadingTopInteractions && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "mt-2",
-                        children: "Loading top interactions..."
-                    }, void 0, false, {
-                        fileName: "[project]/app/HomePage.tsx",
-                        lineNumber: 263,
-                        columnNumber: 44
-                    }, this),
-                    errorTopInteractions && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "mt-2 text-red-500",
-                        children: [
-                            "Error: ",
-                            errorTopInteractions
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/app/HomePage.tsx",
-                        lineNumber: 264,
-                        columnNumber: 42
-                    }, this),
-                    !loadingTopInteractions && !errorTopInteractions && topInteractions.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
-                        className: "mt-4 space-y-2",
-                        children: topInteractions.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                className: "border-b py-2",
+                                columnNumber: 25
+                            }, this),
+                            !loadingOriginalSearch && !errorOriginalSearch && originalSearchResults.length === 0 && originalQuery && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "mt-2",
                                 children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                    'No results found for "',
+                                    originalQuery,
+                                    '".'
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/HomePage.tsx",
+                                lineNumber: 248,
+                                columnNumber: 25
+                            }, this),
+                            !loadingOriginalSearch && !errorOriginalSearch && originalSearchResults.length === 0 && !originalQuery && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "mt-2",
+                                children: "Enter a query in the search box above."
+                            }, void 0, false, {
+                                fileName: "[project]/app/HomePage.tsx",
+                                lineNumber: 251,
+                                columnNumber: 25
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/app/HomePage.tsx",
+                        lineNumber: 215,
+                        columnNumber: 17
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "border p-4 rounded shadow",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                className: "text-2xl font-semibold mb-4",
+                                children: "Top 15 Interactions by PRR"
+                            }, void 0, false, {
+                                fileName: "[project]/app/HomePage.tsx",
+                                lineNumber: 258,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                onClick: fetchTopInteractions,
+                                className: "bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600",
+                                children: "Fetch Top Interactions"
+                            }, void 0, false, {
+                                fileName: "[project]/app/HomePage.tsx",
+                                lineNumber: 259,
+                                columnNumber: 21
+                            }, this),
+                            loadingTopInteractions && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "mt-2",
+                                children: "Loading top interactions..."
+                            }, void 0, false, {
+                                fileName: "[project]/app/HomePage.tsx",
+                                lineNumber: 266,
+                                columnNumber: 48
+                            }, this),
+                            errorTopInteractions && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "mt-2 text-red-500",
+                                children: [
+                                    "Error: ",
+                                    errorTopInteractions
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/HomePage.tsx",
+                                lineNumber: 267,
+                                columnNumber: 46
+                            }, this),
+                            !loadingTopInteractions && !errorTopInteractions && topInteractions.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
+                                className: "mt-4 space-y-2",
+                                children: topInteractions.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                        className: "border-b py-2",
                                         children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
-                                                children: "Drug 1:"
-                                            }, void 0, false, {
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                                        children: "Drug 1:"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/HomePage.tsx",
+                                                        lineNumber: 272,
+                                                        columnNumber: 40
+                                                    }, this),
+                                                    " ",
+                                                    item.drug_1_name
+                                                ]
+                                            }, void 0, true, {
                                                 fileName: "[project]/app/HomePage.tsx",
-                                                lineNumber: 269,
-                                                columnNumber: 36
+                                                lineNumber: 272,
+                                                columnNumber: 37
                                             }, this),
-                                            " ",
-                                            item.drug_1_name
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/app/HomePage.tsx",
-                                        lineNumber: 269,
-                                        columnNumber: 33
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
-                                                children: "Drug 2:"
-                                            }, void 0, false, {
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                                        children: "Drug 2:"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/HomePage.tsx",
+                                                        lineNumber: 273,
+                                                        columnNumber: 40
+                                                    }, this),
+                                                    " ",
+                                                    item.drug_2_name
+                                                ]
+                                            }, void 0, true, {
                                                 fileName: "[project]/app/HomePage.tsx",
-                                                lineNumber: 270,
-                                                columnNumber: 36
+                                                lineNumber: 273,
+                                                columnNumber: 37
                                             }, this),
-                                            " ",
-                                            item.drug_2_name
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/app/HomePage.tsx",
-                                        lineNumber: 270,
-                                        columnNumber: 33
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
-                                                children: "Average PRR:"
-                                            }, void 0, false, {
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                                        children: "Average PRR:"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/HomePage.tsx",
+                                                        lineNumber: 274,
+                                                        columnNumber: 40
+                                                    }, this),
+                                                    " ",
+                                                    item.avg_prr
+                                                ]
+                                            }, void 0, true, {
                                                 fileName: "[project]/app/HomePage.tsx",
-                                                lineNumber: 271,
-                                                columnNumber: 36
+                                                lineNumber: 274,
+                                                columnNumber: 37
                                             }, this),
-                                            " ",
-                                            item.avg_prr
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                                        children: "Interaction Count:"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/HomePage.tsx",
+                                                        lineNumber: 275,
+                                                        columnNumber: 40
+                                                    }, this),
+                                                    " ",
+                                                    item.interaction_count
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/app/HomePage.tsx",
+                                                lineNumber: 275,
+                                                columnNumber: 37
+                                            }, this)
                                         ]
-                                    }, void 0, true, {
+                                    }, index, true, {
                                         fileName: "[project]/app/HomePage.tsx",
                                         lineNumber: 271,
                                         columnNumber: 33
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
-                                                children: "Interaction Count:"
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/HomePage.tsx",
-                                                lineNumber: 272,
-                                                columnNumber: 36
-                                            }, this),
-                                            " ",
-                                            item.interaction_count
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/app/HomePage.tsx",
-                                        lineNumber: 272,
-                                        columnNumber: 33
-                                    }, this)
-                                ]
-                            }, index, true, {
+                                    }, this))
+                            }, void 0, false, {
                                 fileName: "[project]/app/HomePage.tsx",
-                                lineNumber: 268,
-                                columnNumber: 29
-                            }, this))
-                    }, void 0, false, {
-                        fileName: "[project]/app/HomePage.tsx",
-                        lineNumber: 266,
-                        columnNumber: 21
-                    }, this),
-                    !loadingTopInteractions && !errorTopInteractions && topInteractions.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "mt-2",
-                        children: "No top interactions found."
-                    }, void 0, false, {
-                        fileName: "[project]/app/HomePage.tsx",
-                        lineNumber: 278,
-                        columnNumber: 21
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "[project]/app/HomePage.tsx",
-                lineNumber: 254,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "border p-4 rounded shadow",
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                        className: "text-2xl font-semibold mb-4",
-                        children: "Substances Invoking Most Conditions"
-                    }, void 0, false, {
-                        fileName: "[project]/app/HomePage.tsx",
-                        lineNumber: 284,
-                        columnNumber: 17
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                        onClick: fetchSubstanceConditions,
-                        className: "bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600",
-                        children: "Fetch Substances"
-                    }, void 0, false, {
-                        fileName: "[project]/app/HomePage.tsx",
-                        lineNumber: 285,
-                        columnNumber: 18
-                    }, this),
-                    loadingSubstanceConditions && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "mt-2",
-                        children: "Loading substance conditions..."
-                    }, void 0, false, {
-                        fileName: "[project]/app/HomePage.tsx",
-                        lineNumber: 291,
-                        columnNumber: 48
-                    }, this),
-                    errorSubstanceConditions && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "mt-2 text-red-500",
-                        children: [
-                            "Error: ",
-                            errorSubstanceConditions
+                                lineNumber: 269,
+                                columnNumber: 25
+                            }, this),
+                            !loadingTopInteractions && !errorTopInteractions && topInteractions.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "mt-2",
+                                children: "No top interactions found."
+                            }, void 0, false, {
+                                fileName: "[project]/app/HomePage.tsx",
+                                lineNumber: 281,
+                                columnNumber: 25
+                            }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/HomePage.tsx",
-                        lineNumber: 292,
-                        columnNumber: 46
+                        lineNumber: 257,
+                        columnNumber: 17
                     }, this),
-                    !loadingSubstanceConditions && !errorSubstanceConditions && substanceConditions.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
-                        className: "mt-4 space-y-2",
-                        children: substanceConditions.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                className: "border-b py-2",
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "border p-4 rounded shadow",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                className: "text-2xl font-semibold mb-4",
+                                children: "Substances Invoking Most Conditions"
+                            }, void 0, false, {
+                                fileName: "[project]/app/HomePage.tsx",
+                                lineNumber: 287,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                onClick: fetchSubstanceConditions,
+                                className: "bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600",
+                                children: "Fetch Substances"
+                            }, void 0, false, {
+                                fileName: "[project]/app/HomePage.tsx",
+                                lineNumber: 288,
+                                columnNumber: 21
+                            }, this),
+                            loadingSubstanceConditions && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "mt-2",
+                                children: "Loading substance conditions..."
+                            }, void 0, false, {
+                                fileName: "[project]/app/HomePage.tsx",
+                                lineNumber: 294,
+                                columnNumber: 52
+                            }, this),
+                            errorSubstanceConditions && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "mt-2 text-red-500",
                                 children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                    "Error: ",
+                                    errorSubstanceConditions
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/HomePage.tsx",
+                                lineNumber: 295,
+                                columnNumber: 50
+                            }, this),
+                            !loadingSubstanceConditions && !errorSubstanceConditions && substanceConditions.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
+                                className: "mt-4 space-y-2",
+                                children: substanceConditions.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                        className: "border-b py-2",
                                         children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
-                                                children: "Drug Name:"
-                                            }, void 0, false, {
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                                        children: "Drug Name:"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/HomePage.tsx",
+                                                        lineNumber: 300,
+                                                        columnNumber: 40
+                                                    }, this),
+                                                    " ",
+                                                    item.drug_name
+                                                ]
+                                            }, void 0, true, {
                                                 fileName: "[project]/app/HomePage.tsx",
-                                                lineNumber: 297,
-                                                columnNumber: 36
+                                                lineNumber: 300,
+                                                columnNumber: 37
                                             }, this),
-                                            " ",
-                                            item.drug_name
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/app/HomePage.tsx",
-                                        lineNumber: 297,
-                                        columnNumber: 33
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
-                                                children: "RXCUI:"
-                                            }, void 0, false, {
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                                        children: "RXCUI:"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/HomePage.tsx",
+                                                        lineNumber: 301,
+                                                        columnNumber: 40
+                                                    }, this),
+                                                    " ",
+                                                    item.RXCUI
+                                                ]
+                                            }, void 0, true, {
                                                 fileName: "[project]/app/HomePage.tsx",
-                                                lineNumber: 298,
-                                                columnNumber: 36
+                                                lineNumber: 301,
+                                                columnNumber: 37
                                             }, this),
-                                            " ",
-                                            item.RXCUI
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/app/HomePage.tsx",
-                                        lineNumber: 298,
-                                        columnNumber: 33
-                                    }, this),
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
-                                                children: "Condition Count:"
-                                            }, void 0, false, {
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                                        children: "Condition Count:"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/HomePage.tsx",
+                                                        lineNumber: 302,
+                                                        columnNumber: 40
+                                                    }, this),
+                                                    " ",
+                                                    item.condition_count
+                                                ]
+                                            }, void 0, true, {
                                                 fileName: "[project]/app/HomePage.tsx",
-                                                lineNumber: 299,
-                                                columnNumber: 36
-                                            }, this),
-                                            " ",
-                                            item.condition_count
+                                                lineNumber: 302,
+                                                columnNumber: 37
+                                            }, this)
                                         ]
-                                    }, void 0, true, {
+                                    }, index, true, {
                                         fileName: "[project]/app/HomePage.tsx",
                                         lineNumber: 299,
                                         columnNumber: 33
-                                    }, this)
-                                ]
-                            }, index, true, {
+                                    }, this))
+                            }, void 0, false, {
                                 fileName: "[project]/app/HomePage.tsx",
-                                lineNumber: 296,
-                                columnNumber: 29
-                            }, this))
-                    }, void 0, false, {
-                        fileName: "[project]/app/HomePage.tsx",
-                        lineNumber: 294,
-                        columnNumber: 21
-                    }, this),
-                    !loadingSubstanceConditions && !errorSubstanceConditions && substanceConditions.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "mt-2",
-                        children: "No substance conditions found."
-                    }, void 0, false, {
-                        fileName: "[project]/app/HomePage.tsx",
-                        lineNumber: 305,
-                        columnNumber: 21
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "[project]/app/HomePage.tsx",
-                lineNumber: 283,
-                columnNumber: 14
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "border p-4 rounded shadow",
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                        className: "text-2xl font-semibold mb-4",
-                        children: "List Drugs for a User"
-                    }, void 0, false, {
-                        fileName: "[project]/app/HomePage.tsx",
-                        lineNumber: 311,
-                        columnNumber: 17
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                        type: "text" // Use text type for potential non-numeric user IDs or flexibility
-                        ,
-                        value: userId,
-                        onChange: (e)=>setUserId(e.target.value),
-                        className: "border p-2 w-full mb-4 rounded",
-                        placeholder: "Enter User ID"
-                    }, void 0, false, {
-                        fileName: "[project]/app/HomePage.tsx",
-                        lineNumber: 312,
-                        columnNumber: 17
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                        onClick: fetchUserDrugs,
-                        className: "bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600",
-                        children: "Fetch User's Drugs"
-                    }, void 0, false, {
-                        fileName: "[project]/app/HomePage.tsx",
-                        lineNumber: 319,
-                        columnNumber: 17
-                    }, this),
-                    loadingUserDrugs && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "mt-2",
-                        children: "Loading user's drugs..."
-                    }, void 0, false, {
-                        fileName: "[project]/app/HomePage.tsx",
-                        lineNumber: 325,
-                        columnNumber: 38
-                    }, this),
-                    errorUserDrugs && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "mt-2 text-red-500",
-                        children: [
-                            "Error: ",
-                            errorUserDrugs
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/app/HomePage.tsx",
-                        lineNumber: 326,
-                        columnNumber: 36
-                    }, this),
-                    !loadingUserDrugs && !errorUserDrugs && userDrugs.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
-                        className: "mt-4 space-y-2",
-                        children: userDrugs.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                className: "border-b py-2",
-                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
-                                            children: "Drug RXCUI:"
-                                        }, void 0, false, {
-                                            fileName: "[project]/app/HomePage.tsx",
-                                            lineNumber: 331,
-                                            columnNumber: 36
-                                        }, this),
-                                        " ",
-                                        item.RXCUI
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/app/HomePage.tsx",
-                                    lineNumber: 331,
-                                    columnNumber: 33
-                                }, this)
-                            }, index, false, {
+                                lineNumber: 297,
+                                columnNumber: 25
+                            }, this),
+                            !loadingSubstanceConditions && !errorSubstanceConditions && substanceConditions.length === 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "mt-2",
+                                children: "No substance conditions found."
+                            }, void 0, false, {
                                 fileName: "[project]/app/HomePage.tsx",
-                                lineNumber: 330,
-                                columnNumber: 29
-                            }, this))
-                    }, void 0, false, {
-                        fileName: "[project]/app/HomePage.tsx",
-                        lineNumber: 328,
-                        columnNumber: 21
-                    }, this),
-                    !loadingUserDrugs && !errorUserDrugs && userDrugs.length === 0 && userId && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "mt-2",
-                        children: [
-                            'No drugs found for User ID "',
-                            userId,
-                            '".'
+                                lineNumber: 308,
+                                columnNumber: 25
+                            }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/HomePage.tsx",
-                        lineNumber: 338,
-                        columnNumber: 21
-                    }, this),
-                    !loadingUserDrugs && !errorUserDrugs && userDrugs.length === 0 && !userId && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "mt-2",
-                        children: "Enter a User ID to search for drugs."
-                    }, void 0, false, {
-                        fileName: "[project]/app/HomePage.tsx",
-                        lineNumber: 341,
-                        columnNumber: 21
-                    }, this)
-                ]
-            }, void 0, true, {
-                fileName: "[project]/app/HomePage.tsx",
-                lineNumber: 310,
-                columnNumber: 13
-            }, this),
-            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                className: "border p-4 rounded shadow",
-                children: [
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
-                        className: "text-2xl font-semibold mb-4",
-                        children: "Drugs Interacting Most with a Given Drug"
-                    }, void 0, false, {
-                        fileName: "[project]/app/HomePage.tsx",
-                        lineNumber: 347,
+                        lineNumber: 286,
                         columnNumber: 17
                     }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                        type: "text" // Use text type for potential non-numeric RXCUIs or flexibility
-                        ,
-                        value: drugRxcui,
-                        onChange: (e)=>setDrugRxcui(e.target.value),
-                        className: "border p-2 w-full mb-4 rounded",
-                        placeholder: "Enter Drug RXCUI"
-                    }, void 0, false, {
-                        fileName: "[project]/app/HomePage.tsx",
-                        lineNumber: 348,
-                        columnNumber: 17
-                    }, this),
-                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
-                        onClick: fetchDrugInteractions,
-                        className: "bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600",
-                        children: "Fetch Interactions"
-                    }, void 0, false, {
-                        fileName: "[project]/app/HomePage.tsx",
-                        lineNumber: 355,
-                        columnNumber: 17
-                    }, this),
-                    loadingDrugInteractions && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "mt-2",
-                        children: "Loading drug interactions..."
-                    }, void 0, false, {
-                        fileName: "[project]/app/HomePage.tsx",
-                        lineNumber: 361,
-                        columnNumber: 45
-                    }, this),
-                    errorDrugInteractions && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "mt-2 text-red-500",
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "border p-4 rounded shadow",
                         children: [
-                            "Error: ",
-                            errorDrugInteractions
-                        ]
-                    }, void 0, true, {
-                        fileName: "[project]/app/HomePage.tsx",
-                        lineNumber: 362,
-                        columnNumber: 43
-                    }, this),
-                    !loadingDrugInteractions && !errorDrugInteractions && drugInteractions.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
-                        className: "mt-4 space-y-2",
-                        children: drugInteractions.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
-                                className: "border-b py-2",
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                className: "text-2xl font-semibold mb-4",
+                                children: "List Drugs for a User"
+                            }, void 0, false, {
+                                fileName: "[project]/app/HomePage.tsx",
+                                lineNumber: 314,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                type: "text" // Use text type for potential non-numeric user IDs or flexibility
+                                ,
+                                value: userId,
+                                onChange: (e)=>setUserId(e.target.value),
+                                className: "border p-2 w-full mb-4 rounded",
+                                placeholder: "Enter User ID"
+                            }, void 0, false, {
+                                fileName: "[project]/app/HomePage.tsx",
+                                lineNumber: 315,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                onClick: fetchUserDrugs,
+                                className: "bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600",
+                                children: "Fetch User's Drugs"
+                            }, void 0, false, {
+                                fileName: "[project]/app/HomePage.tsx",
+                                lineNumber: 322,
+                                columnNumber: 21
+                            }, this),
+                            loadingUserDrugs && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "mt-2",
+                                children: "Loading user's drugs..."
+                            }, void 0, false, {
+                                fileName: "[project]/app/HomePage.tsx",
+                                lineNumber: 328,
+                                columnNumber: 42
+                            }, this),
+                            errorUserDrugs && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "mt-2 text-red-500",
                                 children: [
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
-                                                children: "Interacting Drug RXCUI:"
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/HomePage.tsx",
-                                                lineNumber: 367,
-                                                columnNumber: 36
-                                            }, this),
-                                            " ",
-                                            item.RXCUI2
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/app/HomePage.tsx",
-                                        lineNumber: 367,
-                                        columnNumber: 33
-                                    }, this),
-                                    " ",
-                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
-                                                children: "Interaction Count:"
-                                            }, void 0, false, {
-                                                fileName: "[project]/app/HomePage.tsx",
-                                                lineNumber: 368,
-                                                columnNumber: 36
-                                            }, this),
-                                            " ",
-                                            item.interaction_count
-                                        ]
-                                    }, void 0, true, {
-                                        fileName: "[project]/app/HomePage.tsx",
-                                        lineNumber: 368,
-                                        columnNumber: 33
-                                    }, this)
+                                    "Error: ",
+                                    errorUserDrugs
                                 ]
-                            }, index, true, {
+                            }, void 0, true, {
                                 fileName: "[project]/app/HomePage.tsx",
-                                lineNumber: 366,
-                                columnNumber: 29
-                            }, this))
-                    }, void 0, false, {
-                        fileName: "[project]/app/HomePage.tsx",
-                        lineNumber: 364,
-                        columnNumber: 21
-                    }, this),
-                    !loadingDrugInteractions && !errorDrugInteractions && drugInteractions.length === 0 && drugRxcui && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "mt-2",
-                        children: [
-                            'No interactions found for drug RXCUI "',
-                            drugRxcui,
-                            '".'
+                                lineNumber: 329,
+                                columnNumber: 40
+                            }, this),
+                            !loadingUserDrugs && !errorUserDrugs && userDrugs.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
+                                className: "mt-4 space-y-2",
+                                children: userDrugs.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                        className: "border-b py-2",
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                                    children: "Drug RXCUI:"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/app/HomePage.tsx",
+                                                    lineNumber: 334,
+                                                    columnNumber: 40
+                                                }, this),
+                                                " ",
+                                                item.RXCUI
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/app/HomePage.tsx",
+                                            lineNumber: 334,
+                                            columnNumber: 37
+                                        }, this)
+                                    }, index, false, {
+                                        fileName: "[project]/app/HomePage.tsx",
+                                        lineNumber: 333,
+                                        columnNumber: 33
+                                    }, this))
+                            }, void 0, false, {
+                                fileName: "[project]/app/HomePage.tsx",
+                                lineNumber: 331,
+                                columnNumber: 25
+                            }, this),
+                            !loadingUserDrugs && !errorUserDrugs && userDrugs.length === 0 && userId && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "mt-2",
+                                children: [
+                                    'No drugs found for User ID "',
+                                    userId,
+                                    '".'
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/HomePage.tsx",
+                                lineNumber: 341,
+                                columnNumber: 25
+                            }, this),
+                            !loadingUserDrugs && !errorUserDrugs && userDrugs.length === 0 && !userId && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "mt-2",
+                                children: "Enter a User ID to search for drugs."
+                            }, void 0, false, {
+                                fileName: "[project]/app/HomePage.tsx",
+                                lineNumber: 344,
+                                columnNumber: 25
+                            }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/app/HomePage.tsx",
-                        lineNumber: 375,
-                        columnNumber: 21
+                        lineNumber: 313,
+                        columnNumber: 17
                     }, this),
-                    !loadingDrugInteractions && !errorDrugInteractions && drugInteractions.length === 0 && !drugRxcui && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                        className: "mt-2",
-                        children: "Enter a Drug RXCUI to search for interactions."
-                    }, void 0, false, {
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "border p-4 rounded shadow",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                className: "text-2xl font-semibold mb-4",
+                                children: "Drugs Interacting Most with a Given Drug"
+                            }, void 0, false, {
+                                fileName: "[project]/app/HomePage.tsx",
+                                lineNumber: 350,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                type: "text" // Use text type for potential non-numeric RXCUIs or flexibility
+                                ,
+                                value: drugRxcui,
+                                onChange: (e)=>setDrugRxcui(e.target.value),
+                                className: "border p-2 w-full mb-4 rounded",
+                                placeholder: "Enter Drug RXCUI"
+                            }, void 0, false, {
+                                fileName: "[project]/app/HomePage.tsx",
+                                lineNumber: 351,
+                                columnNumber: 21
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                onClick: fetchDrugInteractions,
+                                className: "bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600",
+                                children: "Fetch Interactions"
+                            }, void 0, false, {
+                                fileName: "[project]/app/HomePage.tsx",
+                                lineNumber: 358,
+                                columnNumber: 21
+                            }, this),
+                            loadingDrugInteractions && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "mt-2",
+                                children: "Loading drug interactions..."
+                            }, void 0, false, {
+                                fileName: "[project]/app/HomePage.tsx",
+                                lineNumber: 364,
+                                columnNumber: 49
+                            }, this),
+                            errorDrugInteractions && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "mt-2 text-red-500",
+                                children: [
+                                    "Error: ",
+                                    errorDrugInteractions
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/HomePage.tsx",
+                                lineNumber: 365,
+                                columnNumber: 47
+                            }, this),
+                            !loadingDrugInteractions && !errorDrugInteractions && drugInteractions.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("ul", {
+                                className: "mt-4 space-y-2",
+                                children: drugInteractions.map((item, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("li", {
+                                        className: "border-b py-2",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                                        children: "Interacting Drug RXCUI:"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/HomePage.tsx",
+                                                        lineNumber: 370,
+                                                        columnNumber: 40
+                                                    }, this),
+                                                    " ",
+                                                    item.RXCUI2
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/app/HomePage.tsx",
+                                                lineNumber: 370,
+                                                columnNumber: 37
+                                            }, this),
+                                            " ",
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                                        children: "Interaction Count:"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/app/HomePage.tsx",
+                                                        lineNumber: 371,
+                                                        columnNumber: 40
+                                                    }, this),
+                                                    " ",
+                                                    item.interaction_count
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/app/HomePage.tsx",
+                                                lineNumber: 371,
+                                                columnNumber: 37
+                                            }, this)
+                                        ]
+                                    }, index, true, {
+                                        fileName: "[project]/app/HomePage.tsx",
+                                        lineNumber: 369,
+                                        columnNumber: 33
+                                    }, this))
+                            }, void 0, false, {
+                                fileName: "[project]/app/HomePage.tsx",
+                                lineNumber: 367,
+                                columnNumber: 25
+                            }, this),
+                            !loadingDrugInteractions && !errorDrugInteractions && drugInteractions.length === 0 && drugRxcui && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "mt-2",
+                                children: [
+                                    'No interactions found for drug RXCUI "',
+                                    drugRxcui,
+                                    '".'
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/app/HomePage.tsx",
+                                lineNumber: 378,
+                                columnNumber: 25
+                            }, this),
+                            !loadingDrugInteractions && !errorDrugInteractions && drugInteractions.length === 0 && !drugRxcui && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "mt-2",
+                                children: "Enter a Drug RXCUI to search for interactions."
+                            }, void 0, false, {
+                                fileName: "[project]/app/HomePage.tsx",
+                                lineNumber: 381,
+                                columnNumber: 25
+                            }, this)
+                        ]
+                    }, void 0, true, {
                         fileName: "[project]/app/HomePage.tsx",
-                        lineNumber: 378,
-                        columnNumber: 21
+                        lineNumber: 349,
+                        columnNumber: 17
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/HomePage.tsx",
-                lineNumber: 346,
-                columnNumber: 14
+                lineNumber: 211,
+                columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
