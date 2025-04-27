@@ -254,8 +254,12 @@ class AddMedication(APIView):
         #print(result_id)
         with connection.cursor() as cursor:
             cursor.execute(
-                "SELECT DISTINCT rxcui1 FROM junction LEFT JOIN interactions ON junction.inter_id = interactions.inter_id WHERE junction.result_id = %s",
-                [result_id]
+                "SELECT DISTINCT interactions.rxcui1 " \
+                "FROM junction LEFT JOIN interactions ON junction.inter_id = interactions.inter_id WHERE junction.result_id = %s "
+                "UNION "
+                "SELECT DISTINCT interactions.rxcui2 "
+                "FROM junction LEFT JOIN interactions ON junction.inter_id = interactions.inter_id WHERE junction.result_id = %s",
+                [result_id, result_id]
             )
             all_rxcuis = set()
             for row in cursor.fetchall():
@@ -268,7 +272,8 @@ class AddMedication(APIView):
                 )   
                 temp_inter_id = cursor.fetchone()
                 # print(temp_inter_id)
-                cursor.execute("INSERT INTO junction (result_id, inter_id) VALUES (%s, %s)", [result_id, temp_inter_id[0]])
+                cursor.execute("INSERT INTO junction (result_id, inter_id, rxcui1, rxcui2) " \
+                "VALUES (%s, %s, %s, %s)", [result_id, temp_inter_id[0], rxcui, exist_rxcui])
         return Response(status = 200)
     
 class DeleteMedication(APIView):
@@ -277,6 +282,13 @@ class DeleteMedication(APIView):
         rxcui = request.data.get("rxcui")
         print(rxcui)
         with connection.cursor() as cursor:
+            cursor.execute(
+                "DELETE FROM junction WHERE result_id = %s AND (rxcui1 = %s OR rxcui2 = %s)",
+                [result_id, rxcui, rxcui]
+            )
+
+        return Response(status = 200)
+        """
             cursor.execute(
                 "SELECT DISTINCT rxcui1 FROM junction LEFT JOIN interactions ON junction.inter_id = interactions.inter_id WHERE junction.result_id = %s",
                 [result_id]
@@ -288,13 +300,14 @@ class DeleteMedication(APIView):
         with connection.cursor() as cursor:
             for exist_rxcui in all_rxcuis:
                 cursor.execute(
-                    """SELECT DISTINCT inter_id FROM interactions WHERE (rxcui1 = %s AND rxcui2 = %s) OR (rxcui1 = %s AND rxcui2 = %s)""",
+                    "SELECT DISTINCT inter_id FROM interactions WHERE (rxcui1 = %s AND rxcui2 = %s) OR (rxcui1 = %s AND rxcui2 = %s)",
                     [rxcui, exist_rxcui, exist_rxcui, rxcui]
                 )   
                 temp_inter_id = cursor.fetchone()
                 print(temp_inter_id)
                 cursor.execute("DELETE FROM junction WHERE result_id = %s AND inter_id = %s", [result_id, temp_inter_id[0]])
         return Response(status = 200)
+        """
     
 class GetResultIds(APIView):
     def get(self, request):
@@ -319,7 +332,7 @@ class DrugConditionsView(APIView):
         query = """
             SELECT drug_1_concept_name, drug_2_concept_name, condition_concept_name FROM Results
             JOIN junction ON Results.result_id = junction.result_id
-            JOIN Interactions on junction.condition_meddra_id = Interactions.condition_meddra_id
+            JOIN Interactions on junction.inter_id = Interactions.inter_id
             WHERE ((junction.RXCUI1 = Interactions.RXCUI1 AND junction.RXCUI2 = Interactions.RXCUI2) OR 
             (junction.RXCUI1 = Interactions.RXCUI2 AND junction.RXCUI2 = Interactions.RXCUI1))
             AND user_id = %s;
