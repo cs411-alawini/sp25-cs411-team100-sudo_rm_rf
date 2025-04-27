@@ -254,10 +254,8 @@ class AddMedication(APIView):
         #print(result_id)
         with connection.cursor() as cursor:
             cursor.execute(
-                """SELECT DISTINCT rxcui1 FROM junction LEFT JOIN interactions ON junction.inter_id = interactions.inter_id WHERE junction.result_id = %s
-                UNION
-                SELECT DISTINCT rxcui2 FROM junction LEFT JOIN interactions ON junction.inter_id = interactions.inter_id WHERE junction.result_id = %s""",
-                [result_id, result_id]
+                "SELECT DISTINCT rxcui1 FROM junction LEFT JOIN interactions ON junction.inter_id = interactions.inter_id WHERE junction.result_id = %s",
+                [result_id]
             )
             all_rxcuis = set()
             for row in cursor.fetchall():
@@ -280,10 +278,8 @@ class DeleteMedication(APIView):
         print(rxcui)
         with connection.cursor() as cursor:
             cursor.execute(
-                """SELECT DISTINCT rxcui1 FROM junction LEFT JOIN interactions ON junction.inter_id = interactions.inter_id WHERE junction.result_id = %s
-                UNION
-                SELECT DISTINCT rxcui2 FROM junction LEFT JOIN interactions ON junction.inter_id = interactions.inter_id WHERE junction.result_id = %s""",
-                [result_id, result_id]
+                "SELECT DISTINCT rxcui1 FROM junction LEFT JOIN interactions ON junction.inter_id = interactions.inter_id WHERE junction.result_id = %s",
+                [result_id]
             )
             all_rxcuis = set()
             for row in cursor.fetchall():
