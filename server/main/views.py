@@ -170,6 +170,36 @@ class UserRegistrationView(APIView):
     
     def get(self, request):
         return Response({"message": "UserRegistrationView is working!"}, status=200)
+    
+    def delete(self, request):
+        user_id = request.data.get('user_id')
+
+        query = """
+            START TRANSACTION;
+
+            CREATE TABLE Deleted(
+                id INT
+            );
+
+            INSERT INTO Deleted (SELECT result_id FROM Results WHERE user_id = %s);
+
+            DELETE FROM Results WHERE user_id = %s;
+            DELETE FROM junction WHERE result_id IN (SELECT id FROM Deleted);
+            DELETE FROM Users WHERE user_id = %s;
+
+            DROP TABLE Deleted;
+
+            COMMIT;
+        """
+
+        try:
+            # results = []
+            with connection.cursor() as cursor:
+                cursor.execute(query, [user_id, user_id, user_id])
+
+            return Response({"message": "Login successful", "user_id": user_id}, status=200)
+        except:
+            return Response({"error": "An error occurred during deletion"}, status=500)
 
 class UserLoginView(APIView):
     def post(self, request):
@@ -193,3 +223,32 @@ class UserLoginView(APIView):
                     return Response({"error": "Invalid credentials"}, status=401)         
         except:
             return Response({"error": "An error occurred during login"}, status=500)
+
+class DrugConditionsView(APIView):
+    def post(self, request):
+        user_id = request.data.get('user_id')
+
+        query = """
+            SELECT drug_1_concept_name, drug_2_concept_name, condition_concept_name FROM Results
+            JOIN junction ON Results.result_id = junction.result_id
+            JOIN Interactions on junction.condition_meddra_id = Interactions.condition_meddra_id
+            WHERE ((junction.RXCUI1 = Interactions.RXCUI1 AND junction.RXCUI2 = Interactions.RXCUI2) OR 
+            (junction.RXCUI1 = Interactions.RXCUI2 AND junction.RXCUI2 = Interactions.RXCUI1))
+            AND user_id = %s;
+        """
+
+        try:
+            results = []
+            with connection.cursor() as cursor:
+                cursor.execute(query, [user_id])
+
+                for row in cursor.fetchall():
+                    results.append({
+                        "drug_1_concept_name": row[0],
+                        "drug_2_concept_name": row[1],
+                        "condition_concept_name": row[2]
+                    })
+                
+                return Response(results, status = 200)
+        except:
+            return Response({"error": "An error occurred"}, status=500)

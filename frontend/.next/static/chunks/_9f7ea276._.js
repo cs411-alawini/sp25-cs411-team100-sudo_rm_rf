@@ -35,7 +35,9 @@ function RegistrationPage() {
                     password: password
                 })
             });
+            const data = await response.json();
             localStorage.setItem("email", email);
+            localStorage.setItem("user_id", data.user_id);
             window.location.href = "/";
         } catch (error) {
             console.error("There has been an error:", error);
@@ -54,13 +56,13 @@ function RegistrationPage() {
                 children: "Registration"
             }, void 0, false, {
                 fileName: "[project]/app/registration/page.tsx",
-                lineNumber: 43,
+                lineNumber: 46,
                 columnNumber: 13
             }, this),
             " ",
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                 fileName: "[project]/app/registration/page.tsx",
-                lineNumber: 43,
+                lineNumber: 46,
                 columnNumber: 35
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -71,7 +73,7 @@ function RegistrationPage() {
                 style: {
                     outline: '2px solid white',
                     backgroundColor: 'transparent',
-                    color: 'white',
+                    color: 'black',
                     padding: '8px',
                     borderRadius: '4px',
                     marginBottom: '10px',
@@ -79,13 +81,13 @@ function RegistrationPage() {
                 }
             }, void 0, false, {
                 fileName: "[project]/app/registration/page.tsx",
-                lineNumber: 44,
+                lineNumber: 47,
                 columnNumber: 13
             }, this),
             " ",
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                 fileName: "[project]/app/registration/page.tsx",
-                lineNumber: 58,
+                lineNumber: 61,
                 columnNumber: 16
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -96,7 +98,7 @@ function RegistrationPage() {
                 style: {
                     outline: '2px solid white',
                     backgroundColor: 'transparent',
-                    color: 'white',
+                    color: 'black',
                     padding: '8px',
                     borderRadius: '4px',
                     marginBottom: '10px',
@@ -104,13 +106,13 @@ function RegistrationPage() {
                 }
             }, void 0, false, {
                 fileName: "[project]/app/registration/page.tsx",
-                lineNumber: 59,
+                lineNumber: 62,
                 columnNumber: 13
             }, this),
             " ",
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                 fileName: "[project]/app/registration/page.tsx",
-                lineNumber: 73,
+                lineNumber: 76,
                 columnNumber: 16
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -119,7 +121,7 @@ function RegistrationPage() {
                 style: {
                     outline: '2px solid white',
                     backgroundColor: 'transparent',
-                    color: 'white',
+                    color: 'black',
                     padding: '8px',
                     borderRadius: '4px',
                     marginBottom: '10px',
@@ -128,13 +130,13 @@ function RegistrationPage() {
                 children: "Register"
             }, void 0, false, {
                 fileName: "[project]/app/registration/page.tsx",
-                lineNumber: 74,
+                lineNumber: 77,
                 columnNumber: 13
             }, this),
             " ",
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                 fileName: "[project]/app/registration/page.tsx",
-                lineNumber: 85,
+                lineNumber: 88,
                 columnNumber: 23
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -145,19 +147,19 @@ function RegistrationPage() {
                         children: "Log in"
                     }, void 0, false, {
                         fileName: "[project]/app/registration/page.tsx",
-                        lineNumber: 86,
+                        lineNumber: 89,
                         columnNumber: 41
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/registration/page.tsx",
-                lineNumber: 86,
+                lineNumber: 89,
                 columnNumber: 13
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/app/registration/page.tsx",
-        lineNumber: 36,
+        lineNumber: 39,
         columnNumber: 9
     }, this);
 }

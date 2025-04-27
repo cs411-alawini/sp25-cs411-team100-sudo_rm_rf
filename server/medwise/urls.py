@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from main.rawsearch.views import SearchItemView
-from main.views import TopInteractionsView, TopDrugsByConditionCountView, DrugInteractingPartnersView, UserRegistrationView, UserLoginView
+from main.views import TopInteractionsView, TopDrugsByConditionCountView, DrugInteractingPartnersView, UserRegistrationView, UserLoginView, DrugConditionsView
 
 
 urlpatterns = [
@@ -29,4 +29,5 @@ urlpatterns = [
     path("api/interacting-drugs/<str:target_rxcui>", DrugInteractingPartnersView.as_view(), name="interacting_drugs"),
     path("api/users", UserRegistrationView.as_view(), name="user_registration"),
     path("api/login", UserLoginView.as_view(), name="user_login"),
+    path("api/conditions", DrugConditionsView.as_view(), name="drug_conditions"),
 ]
