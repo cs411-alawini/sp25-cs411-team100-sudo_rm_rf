@@ -406,21 +406,22 @@ class UserDrugsView(APIView):
     def post(self, request):
         user_id = request.data.get('user_id')
 
-        query = """
-            SELECT DISTINCT RXCUI FROM
-            (SELECT RXCUI1 AS RXCUI, result_id, condition_meddra_id
-            FROM Junction
-            UNION
-            SELECT RXCUI2 AS RXCUI, result_id, condition_meddra_id
-            FROM Junction) AS union_table
-            JOIN Results ON union_table.result_id = Results.result_id
-            WHERE user_id = %s;
-        """
+        # query = """
+        #     SELECT DISTINCT RXCUI FROM
+        #     (SELECT RXCUI1 AS RXCUI, result_id, condition_meddra_id
+        #     FROM Junction
+        #     UNION
+        #     SELECT RXCUI2 AS RXCUI, result_id, condition_meddra_id
+        #     FROM Junction) AS union_table
+        #     JOIN Results ON union_table.result_id = Results.result_id
+        #     WHERE user_id = %s;
+        # """
 
         try:
             results = []
             with connection.cursor() as cursor:
-                cursor.execute(query, [user_id])
+                # cursor.execute(query, [user_id])
+                cursor.callproc('GetUserDrugs', [user_id])
 
                 for row in cursor.fetchall():
                     results.append({
