@@ -1,10 +1,12 @@
 'use client'
 
 import { useState } from "react"
+import Link from "next/link";
 
 export default function LoginPage() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [errorMessage, setErrorMessage] = useState("");
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -32,6 +34,8 @@ export default function LoginPage() {
                 localStorage.setItem("email", email);
                 localStorage.setItem("user_id", data.user_id);
                 window.location.href = "/";
+            } else if (response.status === 401) {
+                setErrorMessage("Invalid credentials. Please try again.");
             } else {
                 console.log("Login failed")
             }
@@ -85,6 +89,10 @@ export default function LoginPage() {
                     marginBottom: '10px',
                     border: 'none'
                 }}>Login</button>
+                <p>No account? <Link href="/registration">Create one here</Link></p>
+                {errorMessage && (
+                <p style={{ color: 'red', marginBottom: '10px' }}>{errorMessage}</p>
+            )}
         </div>
     )
 }
