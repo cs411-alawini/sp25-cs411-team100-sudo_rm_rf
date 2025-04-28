@@ -87,6 +87,22 @@ CREATE TABLE Junction (
     FOREIGN KEY (result_id) REFERENCES Results(result_id)
 );
 
+DELIMITER $$
+CREATE PROCEDURE GetUserDrugs(IN user_id_param INT)
+BEGIN
+    SELECT DISTINCT RXCUI 
+    FROM (
+        SELECT RXCUI1 AS RXCUI, result_id, condition_meddra_id
+        FROM Junction
+        UNION
+        SELECT RXCUI2 AS RXCUI, result_id, condition_meddra_id
+        FROM Junction
+    ) AS union_table
+    JOIN Results ON union_table.result_id = Results.result_id
+    WHERE user_id = user_id_param;
+END$$
+DELIMITER ;
+
 LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/TWOSIDES_appended.csv'
 INTO TABLE Interactions
 FIELDS TERMINATED BY ','

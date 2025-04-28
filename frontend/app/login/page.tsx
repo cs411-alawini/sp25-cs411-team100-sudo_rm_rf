@@ -48,15 +48,15 @@ export default function LoginPage() {
             justifyContent: 'center',
             height: '100vh',
         }}>
+            <h1>Login</h1> <br />
             <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Email"
                 style={{
-                    outline: '2px solid white',
+                    outline: '2px solid #3b82f6',
                     backgroundColor: 'transparent',
-                    color: 'white',
                     padding: '8px',
                     borderRadius: '4px',
                     marginBottom: '10px',
@@ -69,9 +69,8 @@ export default function LoginPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Password"
                 style={{
-                    outline: '2px solid white',
+                    outline: '2px solid #3b82f6',
                     backgroundColor: 'transparent',
-                    color: 'white',
                     padding: '8px',
                     borderRadius: '4px',
                     marginBottom: '10px',
@@ -79,8 +78,7 @@ export default function LoginPage() {
                 }}
             /> <br />
             <button type="submit" onClick={handleSubmit} style={{
-                    outline: '2px solid white',
-                    backgroundColor: 'transparent',
+                    backgroundColor: '#3b82f6',
                     color: 'white',
                     padding: '8px',
                     borderRadius: '4px',
