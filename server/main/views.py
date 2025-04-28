@@ -271,7 +271,7 @@ class AddMedication(APIView):
                 "VALUES (%s, %s, %s, %s)", [result_id, "1", rxcui, rxcui])
                 return Response(status = 200)
         
-        elif len(rows) == 2 and rows[1][0] == "F00103": # User has one drug
+        elif len(rows) == 2 and rows[1][0] == "F00103": # User has one drug (and has inter_id of 1 as a placeholder)
             with connection.cursor() as cursor:
                 # print(temp_inter_id)
                 cursor.execute("SELECT rxcui1 FROM junction WHERE result_id = %s", [result_id])
@@ -393,6 +393,22 @@ class GetID(APIView):
             formated_results.append({"id": res_id[1], "name": res_id[0]})
         #print(formated_results)
         return Response(formated_results, status = 200)
+    
+class CreateResultID(APIView):
+    def post(self, request):
+        user_id = request.data.get("user_id")
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT result_id FROM results")
+            rows = cursor.fetchall()
+
+            max_id = max(*rows)
+            print(max_id[0])
+            cursor.execute("INSERT INTO results (dt_generated, result_name, result_id, user_id) VALUES " \
+            "(NOW(), %s, %s, %s)",
+            [max_id[0] + 1, max_id[0] + 1, user_id])
+
+            print(max_id)
+        return Response(status = 200)
 
 class DrugConditionsView(APIView):
     def post(self, request):

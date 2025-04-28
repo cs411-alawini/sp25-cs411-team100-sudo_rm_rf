@@ -12,23 +12,24 @@ export default function MedicationsPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
 
+  async function fetchResultSets() {
+	try {
+	  const userId = localStorage.getItem('user_id');
+	  if (!userId) {
+		console.error('No user_id found in localStorage');
+		window.location.href = "/login"
+		return;
+	  }
+	  const res = await fetch(`http://localhost:8000/api/result-sets?user_id=${userId}`)
+	  const data = await res.json();
+	  setResultSets(data); // Expecting [{id: 1, name: "Set 1"}, ...]
+	} catch (error) {
+	  console.error('Error fetching result sets:', error);
+	}
+  }
+
   // fetch result_ids on page load
   useEffect(() => {
-	async function fetchResultSets() {
-	  try {
-		const userId = localStorage.getItem('user_id');
-		if (!userId) {
-		  console.error('No user_id found in localStorage');
-		  window.location.href = "/login"
-		  return;
-		}
-		const res = await fetch(`http://localhost:8000/api/result-sets?user_id=${userId}`)
-		const data = await res.json();
-		setResultSets(data); // Expecting [{id: 1, name: "Set 1"}, ...]
-	  } catch (error) {
-		console.error('Error fetching result sets:', error);
-	  }
-	}
 	fetchResultSets();
   }, []);
 
@@ -92,6 +93,33 @@ export default function MedicationsPage() {
 	}
   }
 
+  const handleCreateResultSet = async () => {
+	try {
+	  const userId = localStorage.getItem('user_id');
+	  if (!userId) {
+		alert('User not logged in');
+		return;
+	  }
+  
+	  const res = await fetch('http://localhost:8000/api/create-result-set', {
+		method: 'POST',
+		headers: {
+		  'Content-Type': 'application/json',
+		},
+		body: JSON.stringify({ user_id: userId }),
+	  });
+  
+	  if (res.ok) {
+		alert('New result set created!');
+		fetchResultSets(); // Refresh the dropdown list after creating
+	  } else {
+		alert('Failed to create result set');
+	  }
+	} catch (error) {
+	  console.error('Error creating result set:', error);
+	}
+  };
+
   return (
 	<div>
 	  <NavigationBar />
@@ -100,18 +128,27 @@ export default function MedicationsPage() {
 
 	  <div className="mb-4">
 		<label className="block mb-2 font-semibold">Select Medication Set:</label>
-		<select
-		  className="border p-2 rounded"
-		  value={selectedResultId}
-		  onChange={(e) => setSelectedResultId(e.target.value)}
-		>
-		  <option value="">Select a medication set</option>  {/* <--- Add this */}
-		  {resultSets.map((set) => (
-			<option key={set["id"]} value={set["id"]}>
-			  {set["name"]}
-			</option>
-		  ))}
-		</select>
+			<div className="flex items-center gap-2">
+				<select
+					className="border p-2 rounded"
+					value={selectedResultId}
+					onChange={(e) => setSelectedResultId(e.target.value)}
+				>
+					<option value="">Select a medication set</option>
+					{resultSets.map((set) => (
+					<option key={set["id"]} value={set["id"]}>
+						{set["name"]}
+					</option>
+					))}
+				</select>
+
+				<button
+					className="bg-green-500 text-white p-2 rounded"
+					onClick={handleCreateResultSet}
+				>
+					+ New Set
+				</button>
+			</div>
 	  </div>
 
 	  <div className="mb-6">

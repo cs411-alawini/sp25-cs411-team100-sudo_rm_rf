@@ -36,6 +36,7 @@ urlpatterns = [
     path("api/user-delete-drugs", main.views.DeleteMedication.as_view(), name="delete_user_drugs"),
     path("api/result-sets", main.views.GetResultIds.as_view(), name="get_result_ids"),
     path("api/medication-search", main.views.GetID.as_view(), name="get_name_id"),
+    path("api/create-result-set", main.views.CreateResultID.as_view(), name="create_resid"),
 
     path("api/user-drugs", UserDrugsView.as_view(), name="user_drugs"),
     path("api/password", PasswordChangeView.as_view(), name="password change"),
