@@ -103,6 +103,31 @@ BEGIN
 END$$
 DELIMITER ;
 
+CREATE TRIGGER prevent_self_interaction
+BEFORE INSERT ON Interactions
+FOR EACH ROW
+BEGIN
+    IF NEW.rxcui1 = NEW.rxcui2 THEN
+        SIGNAL SQLSTATE '45000'
+            SET MESSAGE_TEXT = 'Cannot insert interaction where RXCUI1 and RXCUI2 are the same.';
+    END IF;
+END$$
+
+DELIMITER $$
+
+CREATE TRIGGER validate_prr_format
+BEFORE INSERT ON Interactions
+FOR EACH ROW
+BEGIN
+    IF NEW.prr IS NOT NULL AND NEW.prr != '' AND NEW.prr NOT REGEXP '^[0-9]+(\.[0-9]+)?$' THEN
+        SIGNAL SQLSTATE '45000'
+            SET MESSAGE_TEXT = 'Invalid PRR format. Must be a non-empty numeric or decimal string if provided.';
+    END IF;
+END$$
+
+DELIMITER ;
+
+
 LOAD DATA INFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/TWOSIDES_appended.csv'
 INTO TABLE Interactions
 FIELDS TERMINATED BY ','
