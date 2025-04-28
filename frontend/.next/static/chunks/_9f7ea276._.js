@@ -71,9 +71,8 @@ function RegistrationPage() {
                 onChange: (e)=>setEmail(e.target.value),
                 placeholder: "Email",
                 style: {
-                    outline: '2px solid white',
+                    outline: '2px solid #3b82f6',
                     backgroundColor: 'transparent',
-                    color: 'black',
                     padding: '8px',
                     borderRadius: '4px',
                     marginBottom: '10px',
@@ -87,7 +86,7 @@ function RegistrationPage() {
             " ",
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                 fileName: "[project]/app/registration/page.tsx",
-                lineNumber: 61,
+                lineNumber: 60,
                 columnNumber: 16
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -96,9 +95,8 @@ function RegistrationPage() {
                 onChange: (e)=>setPassword(e.target.value),
                 placeholder: "Password",
                 style: {
-                    outline: '2px solid white',
+                    outline: '2px solid #3b82f6',
                     backgroundColor: 'transparent',
-                    color: 'black',
                     padding: '8px',
                     borderRadius: '4px',
                     marginBottom: '10px',
@@ -106,22 +104,21 @@ function RegistrationPage() {
                 }
             }, void 0, false, {
                 fileName: "[project]/app/registration/page.tsx",
-                lineNumber: 62,
+                lineNumber: 61,
                 columnNumber: 13
             }, this),
             " ",
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                 fileName: "[project]/app/registration/page.tsx",
-                lineNumber: 76,
+                lineNumber: 74,
                 columnNumber: 16
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                 type: "submit",
                 onClick: handleSubmit,
                 style: {
-                    outline: '2px solid white',
-                    backgroundColor: 'transparent',
-                    color: 'black',
+                    backgroundColor: '#3b82f6',
+                    color: 'white',
                     padding: '8px',
                     borderRadius: '4px',
                     marginBottom: '10px',
@@ -130,13 +127,13 @@ function RegistrationPage() {
                 children: "Register"
             }, void 0, false, {
                 fileName: "[project]/app/registration/page.tsx",
-                lineNumber: 77,
+                lineNumber: 75,
                 columnNumber: 13
             }, this),
             " ",
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("br", {}, void 0, false, {
                 fileName: "[project]/app/registration/page.tsx",
-                lineNumber: 88,
+                lineNumber: 85,
                 columnNumber: 23
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -147,13 +144,13 @@ function RegistrationPage() {
                         children: "Log in"
                     }, void 0, false, {
                         fileName: "[project]/app/registration/page.tsx",
-                        lineNumber: 89,
+                        lineNumber: 86,
                         columnNumber: 41
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/app/registration/page.tsx",
-                lineNumber: 89,
+                lineNumber: 86,
                 columnNumber: 13
             }, this)
         ]

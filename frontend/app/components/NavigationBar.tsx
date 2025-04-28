@@ -11,7 +11,10 @@ export default function NavigationBar() {
             alignItems: 'center',
             padding: '0 20px',
         }}>
+            <div><Link href="/">Home</Link></div>
             <div><Link href="/account">Account info</Link></div>
+            <div><Link href="/drugs">Drugs</Link></div>
+            <div><Link href="/add-delete">Manage Medications</Link></div>
         </div>
     )
 }

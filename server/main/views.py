@@ -375,7 +375,7 @@ class DrugConditionsView(APIView):
         query = """
             SELECT drug_1_concept_name, drug_2_concept_name, condition_concept_name FROM Results
             JOIN junction ON Results.result_id = junction.result_id
-            JOIN Interactions on junction.inter_id = Interactions.inter_id
+            JOIN Interactions on junction.condition_meddra_id = Interactions.condition_meddra_id
             WHERE ((junction.RXCUI1 = Interactions.RXCUI1 AND junction.RXCUI2 = Interactions.RXCUI2) OR 
             (junction.RXCUI1 = Interactions.RXCUI2 AND junction.RXCUI2 = Interactions.RXCUI1))
             AND user_id = %s;
@@ -384,6 +384,11 @@ class DrugConditionsView(APIView):
         try:
             results = []
             with connection.cursor() as cursor:
+                # cursor.execute(query, [user_id])
+
+                print("cursor executed")
+                print(user_id)
+
                 cursor.execute(query, [user_id])
 
                 for row in cursor.fetchall():
@@ -394,5 +399,54 @@ class DrugConditionsView(APIView):
                     })
                 
                 return Response(results, status = 200)
+        except:
+            return Response({"error": "An error occurred"}, status=500)
+
+class UserDrugsView(APIView):
+    def post(self, request):
+        user_id = request.data.get('user_id')
+
+        query = """
+            SELECT DISTINCT RXCUI FROM
+            (SELECT RXCUI1 AS RXCUI, result_id, condition_meddra_id
+            FROM Junction
+            UNION
+            SELECT RXCUI2 AS RXCUI, result_id, condition_meddra_id
+            FROM Junction) AS union_table
+            JOIN Results ON union_table.result_id = Results.result_id
+            WHERE user_id = %s;
+        """
+
+        try:
+            results = []
+            with connection.cursor() as cursor:
+                cursor.execute(query, [user_id])
+
+                for row in cursor.fetchall():
+                    results.append({
+                        "RXCUI": row[0],
+                    })
+                
+                return Response(results, status = 200)
+        except:
+            return Response({"error": "An error occurred"}, status=500)
+        
+class PasswordChangeView(APIView):
+    def put(self, request):
+        user_id = request.data.get('user_id')
+        new_password = request.data.get('password_hash')
+
+        print(user_id, new_password)
+
+        query = """
+            UPDATE Users
+            SET password_hash = %s
+            WHERE user_id = %s;
+        """
+
+        try:
+            with connection.cursor() as cursor:
+                cursor.execute(query, [new_password, user_id])
+                return Response({"message": "Password changed successfully"}, status=200)
         except:
             return Response({"error": "An error occurred"}, status=500)

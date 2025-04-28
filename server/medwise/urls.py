@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import include, path
 from main.rawsearch.views import SearchItemView
 import main.views #import TopInteractionsView, TopDrugsByConditionCountView, DrugInteractingPartnersView, UserRegistrationView, UserLoginView
-from main.views import TopInteractionsView, TopDrugsByConditionCountView, DrugInteractingPartnersView, UserRegistrationView, UserLoginView, DrugConditionsView
+from main.views import TopInteractionsView, TopDrugsByConditionCountView, DrugInteractingPartnersView, UserRegistrationView, UserLoginView, DrugConditionsView, UserDrugsView, PasswordChangeView
 
 
 urlpatterns = [
@@ -36,4 +36,8 @@ urlpatterns = [
     path("api/user-delete-drugs", main.views.DeleteMedication.as_view(), name="delete_user_drugs"),
     path("api/result-sets", main.views.GetResultIds.as_view(), name="get_result_ids"),
     path("api/medication-search", main.views.GetID.as_view(), name="get_name_id"),
+
+    path("api/user-drugs", UserDrugsView.as_view(), name="user_drugs"),
+    path("api/password", PasswordChangeView.as_view(), name="password change"),
+    
 ]

@@ -50,9 +50,8 @@ export default function RegistrationPage() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Email"
                 style={{
-                    outline: '2px solid white',
+                    outline: '2px solid #3b82f6',
                     backgroundColor: 'transparent',
-                    color: 'black',
                     padding: '8px',
                     borderRadius: '4px',
                     marginBottom: '10px',
@@ -65,9 +64,8 @@ export default function RegistrationPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Password"
                 style={{
-                    outline: '2px solid white',
+                    outline: '2px solid #3b82f6',
                     backgroundColor: 'transparent',
-                    color: 'black',
                     padding: '8px',
                     borderRadius: '4px',
                     marginBottom: '10px',
@@ -76,9 +74,8 @@ export default function RegistrationPage() {
             /> <br />
             <button type="submit" onClick={handleSubmit}
                             style={{
-                                outline: '2px solid white',
-                                backgroundColor: 'transparent',
-                                color: 'black',
+                                backgroundColor: '#3b82f6',
+                                color: 'white',
                                 padding: '8px',
                                 borderRadius: '4px',
                                 marginBottom: '10px',

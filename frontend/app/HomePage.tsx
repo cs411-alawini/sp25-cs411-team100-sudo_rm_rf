@@ -169,7 +169,7 @@ export default function Home() {
         setErrorUserDrugs(null);
         try {
             // Replace with your actual API endpoint for Query 3, using userId as a query parameter
-            const res = await fetch(`YOUR_BACKEND_API_ENDPOINT/user-drugs/?userId=${userId}`);
+            const res = await fetch(`http://localhost:8000/user-drugs/?userId=${userId}`);
              if (!res.ok) {
                  throw new Error(`HTTP error! status: ${res.status}`);
             }
@@ -311,7 +311,7 @@ export default function Home() {
                     )}
                 </div>
 
-                {/* Section for Query 3: User's Drugs */}
+                {/* Section for Query 3: User's Drugs
                 <div className="border p-4 rounded shadow">
                     <h2 className="text-2xl font-semibold mb-4">List Drugs for a User</h2>
                     <input
@@ -335,7 +335,7 @@ export default function Home() {
                                 <li key={index} className="border-b py-2">
                                     <p><strong>Drug RXCUI:</strong> {item.RXCUI}</p>
                                     {/* Display other drug details if available */}
-                                </li>
+                                {/* </li>
                             ))}
                         </ul>
                     )}
@@ -345,7 +345,7 @@ export default function Home() {
                     {!loadingUserDrugs && !errorUserDrugs && userDrugs.length === 0 && !userId && (
                         <p className="mt-2">Enter a User ID to search for drugs.</p>
                     )}
-                </div>
+                </div> */}
 
                 {/* Section for Query 4: Drugs Interacting Most with a Given Drug */}
                 <div className="border p-4 rounded shadow">
