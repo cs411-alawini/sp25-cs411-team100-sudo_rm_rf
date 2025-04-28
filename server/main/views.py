@@ -341,14 +341,14 @@ class GetResultIds(APIView):
         #print(user_id)
         with connection.cursor() as cursor:
             cursor.execute(
-                "SELECT DISTINCT result_id FROM results WHERE user_id = %s", 
+                "SELECT DISTINCT result_name, result_id FROM results WHERE user_id = %s", 
                 [user_id]
             )
             temp_results = cursor.fetchall()
             #print(temp_results)
         formated_results = []
         for idx, res_id in enumerate(temp_results):
-            formated_results.append({"id": res_id, "name": res_id})
+            formated_results.append({"id": res_id[1], "name": res_id[0]})
         #print(formated_results)
         return Response(formated_results, status = 200)
 
@@ -401,13 +401,29 @@ class CreateResultID(APIView):
             cursor.execute("SELECT result_id FROM results")
             rows = cursor.fetchall()
 
+            if len(rows) == 0:  # No results yet
+                cursor.execute("INSERT INTO results (dt_generated, result_name, result_id, user_id) VALUES " \
+                                "(NOW(), %s, %s, %s)", 
+                                [1, 1, user_id])
+                return Response(status = 200)
             max_id = max(*rows)
-            print(max_id[0])
+            #print(max_id[0])
+
+            # Check if user has any results
+            cursor.execute("SELECT result_name FROM results WHERE user_id = %s", 
+                           [user_id])
+            rows = cursor.fetchall()
+            if len(rows) == 0:
+                cursor.execute("INSERT INTO results (dt_generated, result_name, result_id, user_id) VALUES " \
+                                "(NOW(), %s, %s, %s)", 
+                                [1, max_id[0] + 1, user_id])
+                return Response(status = 200)
+            max_result_name = max(*rows)
             cursor.execute("INSERT INTO results (dt_generated, result_name, result_id, user_id) VALUES " \
             "(NOW(), %s, %s, %s)",
-            [max_id[0] + 1, max_id[0] + 1, user_id])
+            [int(max_result_name[0]) + 1, max_id[0] + 1, user_id])
 
-            print(max_id)
+            #print(max_id)
         return Response(status = 200)
 
 class DrugConditionsView(APIView):

@@ -108,7 +108,7 @@ export default function MedicationsPage() {
 		},
 		body: JSON.stringify({ user_id: userId }),
 	  });
-  
+
 	  if (res.ok) {
 		alert('New result set created!');
 		fetchResultSets(); // Refresh the dropdown list after creating
