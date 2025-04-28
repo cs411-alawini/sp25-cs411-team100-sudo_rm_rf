@@ -415,34 +415,36 @@ class DrugConditionsView(APIView):
         user_id = request.data.get('user_id')
 
         query = """
-             SELECT drug_1_concept_name, drug_2_concept_name, MAX(mean_reporting_frequency) FROM Results
-             JOIN junction ON Results.result_id = junction.result_id
-             LEFT JOIN Interactions ON junction.rxcui1 = interactions.rxcui1 
-             WHERE ((junction.RXCUI2 = Interactions.RXCUI2) OR 
-             (junction.RXCUI2 = Interactions.RXCUI1))
-             AND user_id = %s
-             GROUP BY drug_1_concept_name, drug_2_concept_name;
+            SELECT junction.result_id, drug_1_concept_name, drug_2_concept_name, MAX(mean_reporting_frequency)
+            FROM Results
+            JOIN junction ON Results.result_id = junction.result_id
+            LEFT JOIN Interactions ON junction.rxcui1 = interactions.rxcui1
+            WHERE ((junction.RXCUI2 = Interactions.RXCUI2) OR 
+                   (junction.RXCUI2 = Interactions.RXCUI1))
+              AND user_id = %s
+            GROUP BY junction.result_id, drug_1_concept_name, drug_2_concept_name
+            ORDER BY junction.result_id;
         """
  
         try:
-            results = []
+            results = {}
             with connection.cursor() as cursor:
-                # cursor.execute(query, [user_id])
-
-                #print("cursor executed")
-                #print(user_id)
-
                 cursor.execute(query, [user_id])
-
                 for row in cursor.fetchall():
-                    results.append({
-                        "drug_1_concept_name": row[0],
-                        "drug_2_concept_name": row[1],
-                        "mean_reporting_frequency": row[2],
-                        
-                    })
-                
-                return Response(results, status = 200)
+                    result_id = row[0]
+                    interaction = {
+                        "drug_1_concept_name": row[1],
+                        "drug_2_concept_name": row[2],
+                        "mean_reporting_frequency": row[3],
+                    }
+                    if result_id not in results:
+                        results[result_id] = []
+                    results[result_id].append(interaction)
+
+            # Transform dict into list of {result_id, interactions}
+            nested_results = [{"result_id": key, "interactions": value} for key, value in results.items()]
+            return Response(nested_results, status=200)
+        
         except:
             return Response({"error": "An error occurred"}, status=500)
 

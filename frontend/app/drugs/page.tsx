@@ -89,11 +89,18 @@ export default function DrugsPage() {
             <h1>Drug-Drug Interactions</h1>
 
             <ul>
-                {drugsData.map((drug, index) => (
+                {drugsData.map((medicationSet, index) => (
                     <li key={index}>
-                        <strong>Drug 1:</strong> {drug.drug_1_concept_name}, 
-                        <strong> Drug 2:</strong> {drug.drug_2_concept_name}, 
-                        <strong> Maximum Probability of interaction:</strong> {drug.mean_reporting_frequency}
+                        <h2>Medication Set (Result ID): {medicationSet.result_id}</h2>
+                        <ul>
+                            {medicationSet.interactions.map((interaction: any, idx: number) => (
+                                <li key={idx}>
+                                    <strong>Drug 1:</strong> {interaction.drug_1_concept_name}, 
+                                    <strong> Drug 2:</strong> {interaction.drug_2_concept_name}, 
+                                    <strong> Maximum Probability of interaction:</strong> {interaction.mean_reporting_frequency}
+                                </li>
+                            ))}
+                        </ul>
                     </li>
                 ))}
             </ul>
