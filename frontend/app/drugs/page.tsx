@@ -79,7 +79,7 @@ export default function DrugsPage() {
             <ul>
                 {rxcui.map((drug, index) => (
                         <li key={index}>
-                            <strong>Drug:</strong> {drug.RXCUI}
+                            Medication Set: {drug.result_id} : <strong>Drug:</strong> {drug.RXCUI}
                         </li>
                     ))
                 }
@@ -93,7 +93,7 @@ export default function DrugsPage() {
                     <li key={index}>
                         <strong>Drug 1:</strong> {drug.drug_1_concept_name}, 
                         <strong> Drug 2:</strong> {drug.drug_2_concept_name}, 
-                        <strong> Condition:</strong> {drug.condition_concept_name}
+                        <strong> Maximum Probability of interaction:</strong> {drug.mean_reporting_frequency}
                     </li>
                 ))}
             </ul>

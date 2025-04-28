@@ -261,20 +261,46 @@ class AddMedication(APIView):
                 "FROM junction LEFT JOIN interactions ON junction.inter_id = interactions.inter_id WHERE junction.result_id = %s",
                 [result_id, result_id]
             )
-            all_rxcuis = set()
-            for row in cursor.fetchall():
-                all_rxcuis.add(row[0])
-        with connection.cursor() as cursor:
-            for exist_rxcui in all_rxcuis:
-                cursor.execute(
-                    "SELECT DISTINCT inter_id FROM interactions WHERE (rxcui1 = %s AND rxcui2 = %s) OR (rxcui1 = %s AND rxcui2 = %s)",
-                    [rxcui, exist_rxcui, exist_rxcui, rxcui]
-                )   
-                temp_inter_id = cursor.fetchone()
-                # print(temp_inter_id)
+            rows = cursor.fetchall()
+
+        print(rows)
+        if len(rows) == 0: # User has no drugs for this result_id
+            with connection.cursor() as cursor:
+                
                 cursor.execute("INSERT INTO junction (result_id, inter_id, rxcui1, rxcui2) " \
-                "VALUES (%s, %s, %s, %s)", [result_id, temp_inter_id[0], rxcui, exist_rxcui])
-        return Response(status = 200)
+                "VALUES (%s, %s, %s, %s)", [result_id, "1", rxcui, rxcui])
+                return Response(status = 200)
+        
+        elif len(rows) == 2 and rows[1][0] == "F00103": # User has one drug
+            with connection.cursor() as cursor:
+                # print(temp_inter_id)
+                cursor.execute("SELECT rxcui1 FROM junction WHERE result_id = %s", [result_id])
+                prev_rxcui = cursor.fetchone()
+                # print(rxcui, prev_rxcui[0])
+
+                cursor.execute("SELECT inter_id FROM interactions WHERE (rxcui1 = %s AND rxcui2 = %s) OR (rxcui1 = %s AND rxcui2 = %s)",
+                [rxcui, prev_rxcui[0], prev_rxcui[0], rxcui])
+                temp_inter_id = cursor.fetchone()
+
+                cursor.execute("UPDATE junction SET rxcui2 = %s, inter_id = %s WHERE result_id = %s AND rxcui1 = %s",
+                [rxcui, temp_inter_id[0], result_id, prev_rxcui])
+                return Response(status = 200)
+            
+        else:
+            all_rxcuis = set()
+            for row in rows:
+                all_rxcuis.add(row[0])
+            with connection.cursor() as cursor:
+                for exist_rxcui in all_rxcuis:
+                    cursor.execute(
+                        "SELECT DISTINCT inter_id FROM interactions WHERE (rxcui1 = %s AND rxcui2 = %s) OR (rxcui1 = %s AND rxcui2 = %s)",
+                        [rxcui, exist_rxcui, exist_rxcui, rxcui]
+                    )   
+                    temp_inter_id = cursor.fetchone()
+                    # print(temp_inter_id)
+                    cursor.execute("INSERT INTO junction (result_id, inter_id, rxcui1, rxcui2) " \
+                    "VALUES (%s, %s, %s, %s)", [result_id, temp_inter_id[0], rxcui, exist_rxcui])
+            return Response(status = 200)
     
 class DeleteMedication(APIView):
     def post(self, request):
@@ -373,21 +399,22 @@ class DrugConditionsView(APIView):
         user_id = request.data.get('user_id')
 
         query = """
-            SELECT drug_1_concept_name, drug_2_concept_name, condition_concept_name FROM Results
-            JOIN junction ON Results.result_id = junction.result_id
-            JOIN Interactions on junction.condition_meddra_id = Interactions.condition_meddra_id
-            WHERE ((junction.RXCUI1 = Interactions.RXCUI1 AND junction.RXCUI2 = Interactions.RXCUI2) OR 
-            (junction.RXCUI1 = Interactions.RXCUI2 AND junction.RXCUI2 = Interactions.RXCUI1))
-            AND user_id = %s;
+             SELECT drug_1_concept_name, drug_2_concept_name, MAX(mean_reporting_frequency) FROM Results
+             JOIN junction ON Results.result_id = junction.result_id
+             LEFT JOIN Interactions ON junction.rxcui1 = interactions.rxcui1 
+             WHERE ((junction.RXCUI2 = Interactions.RXCUI2) OR 
+             (junction.RXCUI2 = Interactions.RXCUI1))
+             AND user_id = %s
+             GROUP BY drug_1_concept_name, drug_2_concept_name;
         """
-
+ 
         try:
             results = []
             with connection.cursor() as cursor:
                 # cursor.execute(query, [user_id])
 
-                print("cursor executed")
-                print(user_id)
+                #print("cursor executed")
+                #print(user_id)
 
                 cursor.execute(query, [user_id])
 
@@ -395,7 +422,8 @@ class DrugConditionsView(APIView):
                     results.append({
                         "drug_1_concept_name": row[0],
                         "drug_2_concept_name": row[1],
-                        "condition_concept_name": row[2]
+                        "mean_reporting_frequency": row[2],
+                        
                     })
                 
                 return Response(results, status = 200)
@@ -406,28 +434,30 @@ class UserDrugsView(APIView):
     def post(self, request):
         user_id = request.data.get('user_id')
 
-        # query = """
-        #     SELECT DISTINCT RXCUI FROM
-        #     (SELECT RXCUI1 AS RXCUI, result_id, condition_meddra_id
-        #     FROM Junction
-        #     UNION
-        #     SELECT RXCUI2 AS RXCUI, result_id, condition_meddra_id
-        #     FROM Junction) AS union_table
-        #     JOIN Results ON union_table.result_id = Results.result_id
-        #     WHERE user_id = %s;
-        # """
+        query = """
+            SELECT DISTINCT RXCUI, union_table.result_id FROM
+            (SELECT RXCUI1 AS RXCUI, result_id
+            FROM Junction
+            UNION
+            SELECT RXCUI2 AS RXCUI, result_id
+            FROM Junction) AS union_table
+            JOIN Results ON union_table.result_id = Results.result_id
+            WHERE user_id = %s;
+        """
 
         try:
             results = []
             with connection.cursor() as cursor:
-                # cursor.execute(query, [user_id])
-                cursor.callproc('GetUserDrugs', [user_id])
+                cursor.execute(query, [user_id])
+                # cursor.callproc('GetUserDrugs', [user_id])
+                rows = cursor.fetchall()
+                print(rows)
 
-                for row in cursor.fetchall():
+                for row in rows:
                     results.append({
-                        "RXCUI": row[0],
+                        "RXCUI": row[0], 
+                        "result_id": row[1]
                     })
-                
                 return Response(results, status = 200)
         except:
             return Response({"error": "An error occurred"}, status=500)
